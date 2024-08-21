@@ -35,7 +35,7 @@ export function SignIn() {
                     onChange={ e=> setEmail(e.target.value) }
                 
                 />
-                
+
                 <InputWithText
                     title="Senha"
                     id="inputPassword"
@@ -47,20 +47,7 @@ export function SignIn() {
                 
                 />
 
-
-                {/* <Input
-                    placeholder="Exemplo: exemplo@exemplo.com.br" 
-                    type="text" 
-                    onChange={ e=> setEmail(e.target.value) }
-                />
-                
-                <Input 
-                placeholder="No mínimo 6 caracteres" 
-                type="password" 
-                onChange={ e=> setPassword(e.target.value) }
-                /> */}
-                
-
+            
                 <Button title="Entrar" onClick={handleSignIn} />
                     
                 <Link to="/register" >

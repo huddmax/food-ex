@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
-import axios from 'axios';
+import {InputWithText} from '../../components/InputWithText'
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -45,40 +44,54 @@ export function SignUp() {
     return (
         <Container>
             <Form>
-                <h1>Rocket Notes</h1>
-                <p>Aplicação para salvar links</p>
-                <h2>Crie sua conta!</h2>
-
-                <Input
-                    placeholder="Nome"
+             
+                <h2>Crie sua conta</h2>
+                
+                <InputWithText
+                    
+                    title="Seu nome"
+                    id="inputName"
+                    placeholder="Exemplo: Maria da Silva"
                     type="text"
-                    icon={FiUser}
                     onChange={e => setName(e.target.value)}
+                
                 />
 
-                <Input 
-                    placeholder="E-mail" 
+                <InputWithText
+                    title="Email"
+                    id="inputEmail"
+                
+                    
+                    placeholder="Exemplo: exemplo@email.com.br" 
                     type="text" 
-                    icon={FiMail} 
                     onChange={e => setEmail(e.target.value)}
                 />
 
-                <Input 
-                    placeholder="Senha" 
+                <InputWithText
+                    title="Senha"
+                    id="inputPassword"
+                
+                    placeholder="No mínimo 6 caracteres" 
                     type="password" 
-                    icon={FiLock} 
                     onChange={e => setPassword(e.target.value)}
                 />
 
                 <Button title="Criar Conta" onClick={handleSignUp} />
                     
                 <Link to="/" >
-                    Voltar para o Login
+                    Já tenho uma conta
                 </Link >
 
             </Form>
 
-            <Background/>
+            <Background>
+                 <svg width="43" height="48" viewBox="0 0 43 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.5706 0.216553L42.9737 12.0919V35.8426L21.5706 47.7179L0.167517 35.8426V12.0919L21.5706 0.216553Z" fill="#065E7C"/>
+</svg>
+
+                <h1>food explorer</h1>
+                
+            </Background>
 
         </Container>
 

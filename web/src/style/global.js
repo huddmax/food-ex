@@ -57,6 +57,7 @@ export default createGlobalStyle`
         font-size: 14px;
         font-weight: 100;
         font-style: normal;
+        border-radius: 5px;
 
         color: ${ ({ theme }) => theme.COLORS.LIGHT_100 };
 
