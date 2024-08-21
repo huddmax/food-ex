@@ -1,53 +1,83 @@
-import styled from 'styled-components'
-
-import backgoundImg from '../../assets/background.png';
+import styled from 'styled-components';
 
 export const Container = styled.div`
     height:100vh;
 
     display: flex;
-    align-items: stretch;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    align-content: center;
+    flex-wrap: wrap;
+
+    background-color: ${ ({ theme }) => theme.COLORS.DARK_400};
 
 `;
 
 export const Form = styled.form`
-    padding: 0 136px;
+
+    width: 476px;
+    height: 540px;
+
+    padding: 64px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
+    border-radius: 16px;
 
-    > h1 {
-        font-size: 48px;
-        color: ${ ({ theme }) => theme.COLORS.ORANGE};
-    }
+    background-color: ${ ({ theme }) => theme.COLORS.DARK_700};
+
 
     > h2 {
         font-size: 24px;
-        margin-top: 84px;
-        margin-bottom: 24px;
+        margin-bottom: 32px;
 
     }
 
     > p {
         font-size: 14px;
-        color: ${ ({ theme }) => theme.COLORS.GRAY_100};
+        color: ${ ({ theme }) => theme.COLORS.RED};
 
     }
 
     > a {
-        margin-top:124px;
-        color: ${ ({ theme }) => theme.COLORS.ORANGE};
+        margin-top:32px;
+        text-decoration: none;
+
     }
+
+    
+     > div {
+        margin-bottom: 32px;
+    }
+
+
+    
+
+    
 `;
 
 export const Background = styled.div`
-    flex: 1;
-    background: url(${backgoundImg})  no-repeat center center;
-    background-size: cover;
     
 
+    
+    display: flex;
+    align-items: center;
+    gap: 19px;
 
-`;
+    background-color: ${ ({ theme }) => theme.COLORS.DARK_400};
+
+
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0; 
+    font-weight: bold; 
+    text-decoration: none;
+    font-size: 28px;
+    line-height: auto;
+    margin-bottom: 0px;
+    text-transform: none; 
+
+
+
+    `;

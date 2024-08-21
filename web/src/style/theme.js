@@ -1,5 +1,28 @@
 export default {
-    COLORS: {
+  COLORS: {
+      
+    LIGHT_100: "#FFFFFF",
+    LIGHT_400: "#C4C4CC",
+    LIGHT_500: "#7C7C8A",
+
+    TOMATO_100: "#750310",
+
+    DARK_400:"#000A0F",
+    DARK_700:"#001119",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       BACKGROUND_900: "#232129",
       BACKGROUND_800: "#312E38",
       BACKGROUND_700: "#3E3B47",

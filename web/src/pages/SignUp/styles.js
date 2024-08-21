@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import backgoundImg from '../../assets/background.png';
-
 export const Container = styled.div`
     height:100vh;
 
@@ -44,10 +42,8 @@ export const Form = styled.form`
 `;
 
 export const Background = styled.div`
-    flex: 1;
-    background: url(${backgoundImg})  no-repeat center center;
-    background-size: cover;
     
+    font-size: 50px;
 
 
 `;

@@ -10,23 +10,68 @@ export default createGlobalStyle`
     }
 
     body {
-        background-color: ${ ({ theme }) => theme.COLORS.BACKGROUND_800 };
+        background-color: ${ ({ theme }) => theme.COLORS.DARK_400};
         color: ${ ({ theme }) => theme.COLORS.WHITE };
     
-        -webkit-font-smoothing: antialiased;
+        letter-spacing: 0; 
+        text-decoration: none;
+        margin-bottom: 0px;
+        text-transform: none;
+        
     }
 
-    body, input, button, textarea {
+    body, textarea {
 
-        font-family: 'Roboto Slab', serif;
-        font-size: 16px;
-        outline: none;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400; 
+        font-size: 14px;
+        line-height: 160%;
+
+    }
+
+    input {
+
+        padding: 12px 14px;
+
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400; 
+        font-size: 14px;
+        line-height: 160%;
+
+
+    }
+
+    h2 {
+        
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400; 
+        font-size: 32px;
+        line-height: 140%;
+
+    
+
+    }
+
+    button {
+        font-family: 'Poppins', serif;
+        font-size: 14px;
+        font-weight: 100;
+        font-style: normal;
+
+        color: ${ ({ theme }) => theme.COLORS.LIGHT_100 };
 
     }
 
 
     a {
-        text-decoration: none
+        color: ${ ({ theme }) => theme.COLORS.LIGHT_100 };
+    
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500; 
+        font-size: 14px;
+        line-height: 24px;
+
+      
     }
 
     button, a {

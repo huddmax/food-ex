@@ -5,8 +5,6 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
 
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    color: ${({ theme }) => theme.COLORS.BACKGROUND_300};
     
     margin-bottom: 8px;
     border-radius: 10px;
@@ -15,15 +13,14 @@ export const Container = styled.div`
         height: 56px;
         width: 100%;
 
-        padding: 12px;
-
-        color: ${({ theme }) => theme.COLORS.WHITE};
         background: transparent;
-        border: 0;
+        border-radius: 12px;
+        /* border: none;  */
+        
 
-        &:placeholder{
-            color: ${( { theme} ) => theme.COLORS.GRAY_300};
-        }
+        /* &:placeholder{
+            color: ${({theme})=> theme.COLORS.LIGHT_500};
+        } */
     }
 
 

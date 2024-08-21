@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import axios from 'axios';
-// import { Link } from '../../components/Link';
+
 import { Link, useNavigate } from 'react-router-dom';
 
-// import { api } from '../../../../../API/src/services/api';
+
 import { api } from '../../services/api';
 
 import { FiMail, FiLock, FiUser } from 'react-icons/fi';
