@@ -70,11 +70,16 @@ export function Home() {
 
     return (
         <Container>
-            <Brand>
-                <h1>Rocketnotes</h1>
-            </Brand>
 
-            <Header></Header>
+            <Header>
+
+
+            </Header>
+            
+            <Brand>
+                <h2>Sabores inigualáveis</h2>
+                <span>Sabores inigualáveis</span>
+            </Brand>
 
             <Menu>
                 <li><ButtonText
@@ -109,22 +114,24 @@ export function Home() {
                     onChange = { (e) => setSearch(e.target.value) }
                 />
             </Search>
+                           
 
             <Content>
+
 
                 <Section title="Minhas Notas">
 
                     {
                         notes.map(note => (
                             <Note
-                                key={String(note.id)}
-                                data={note}
-                                onClick={ () => handleDetails(note.id)}
+                            key={String(note.id)}
+                            data={note}
+                            onClick={ () => handleDetails(note.id)}
                             />
                         ))
                     }
 
-                    {/* <Note data= {{title:"react"}} /> */}
+                 
 
                 </Section>
 
