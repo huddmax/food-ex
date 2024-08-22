@@ -11,7 +11,7 @@ export default createGlobalStyle`
 
     body {
         background-color: ${ ({ theme }) => theme.COLORS.DARK_400};
-        color: ${ ({ theme }) => theme.COLORS.WHITE };
+        /* color: ${ ({ theme }) => theme.COLORS.WHITE }; */
     
         letter-spacing: 0; 
         text-decoration: none;
