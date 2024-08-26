@@ -1,15 +1,6 @@
-// const message = "Hello, TypeScript"
+function add(a:number, b:number): number {
+    return a+b
+}
 
-// message = "TypeScript"
-// message()
+console.log(add(1, 3))
 
-// const user = {
-//     name: "Hudson",
-//     email: "hud@gmail.com"
-// }
-
-// console.log(user.password)
-
-export const name = "Hudson"
-
-// module.exports = name;
