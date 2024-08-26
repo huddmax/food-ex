@@ -1,11 +1,15 @@
-const message = "Hello, TypeScript"
+// const message = "Hello, TypeScript"
 
-message = "TypeScript"
-message()
+// message = "TypeScript"
+// message()
 
-const user = {
-    name: "Hudson",
-    email: "hud@gmail.com"
-}
+// const user = {
+//     name: "Hudson",
+//     email: "hud@gmail.com"
+// }
 
-console.log(user.password)
+// console.log(user.password)
+
+export const name = "Hudson"
+
+// module.exports = name;
