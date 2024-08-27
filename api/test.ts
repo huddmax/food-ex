@@ -1,29 +1,47 @@
-const arr = [7,6,5,4,3,2,1,2,3,4,5,6,7,8,9]
+// const arrayX = [7, 6, 5, 4, 3, 2, 1, 8, 9];
+const array = [7, 3, 1, 3, 7];
 
-function buscaMenor(arr: number[]):number {
-    let menor = arr[0];
-    let menorIndice = 0;
-    let arrLen = arr.length;
+function findSmallNumber(arrayX: number[]):number {
+    let smallNumber = arrayX[0];
+    let indexSmallNumber = 0;
+    let arrayLen = arrayX.length;
 
-    console.log("function buscaMenor executada");
-    console.log(`Tamanho do array: ${arrLen}`);
+    console.log("function iniciada");
+    console.log(`Tamanho do array: ${arrayLen}`);
     
-    for (let i = 0; i < arrLen; i++){
-        if ( arr[i] < menor ) {
-            menor = arr[i];
-            menorIndice = i;
+    for (let i = 0; i < arrayLen; i++){
+        if ( arrayX[i] < smallNumber ) {
+            smallNumber = arrayX[i];
+            indexSmallNumber = i;
 
             console.log(`Executando if; valor de i: ${i}`)
-            console.log(`Atualização: Valor de menor é: ${menor} menorIndice é: ${menorIndice}`)
+            console.log(`Atualização - menor número é: ${smallNumber} index do menor número: ${indexSmallNumber}`)
         }
         
         else {
             console.log(`Executando else; valor de i: ${i}`)
-            console.log(`Atualização: Valor de menor é: ${menor} menorIndice é: ${menorIndice}`)
+            console.log(`Atualização - menor número é: ${smallNumber} index do menor número: ${indexSmallNumber}`)
         }
     }
-    console.log(`Função encerrada, retornando o menorIndice: ${menorIndice}`)
-    return menorIndice;
+    console.log(`Função encerrada, retornando o menorIndice: ${indexSmallNumber}`)
+    return indexSmallNumber;
 }
 
-buscaMenor(arr);
+// findSmallNumber(arrayX);
+
+findSmallNumber(array);
+
+
+function orderBy(array:number[]):number[] {
+    let newArray:number[] = [];
+    const ArrayLen = array.length;
+
+
+    for (let i = 0; i < ArrayLen; i++){
+        let smallNumber = findSmallNumber(array);
+        newArray.push(array.splice(smallNumber,1)[0]);
+    }
+
+    console.log(newArray)
+    return newArray
+}
