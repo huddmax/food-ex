@@ -27,9 +27,7 @@ function findSmallNumber(arrayX: number[]):number {
     return indexSmallNumber;
 }
 
-// findSmallNumber(arrayX);
 
-findSmallNumber(array);
 
 
 function orderBy(array:number[]):number[] {
