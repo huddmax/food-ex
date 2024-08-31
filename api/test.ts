@@ -1,4 +1,4 @@
-// const arrayX = [7, 6, 5, 4, 3, 2, 1, 8, 9];
+const arrayX = [7, 6, 5, 4, 3, 2, 1, 8, 9];
 const array = [7, 3, 1, 3, 7];
 
 function findSmallNumber(arrayX: number[]):number {
@@ -43,3 +43,5 @@ function orderBy(array:number[]):number[] {
     console.log(newArray)
     return newArray
 }
+
+orderBy(arrayX);
