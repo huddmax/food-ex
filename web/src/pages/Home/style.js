@@ -70,5 +70,7 @@ export const Img = styled.div`
 
     position: absolute;
     z-index: 1;
+
+    object-fit: cover
 `;
 

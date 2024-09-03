@@ -1,3 +1,4 @@
+import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Brand, Container, Menu, Img } from "./style";
 
@@ -24,6 +25,10 @@ export function Home() {
             </Menu>
 
 
+
+            <Footer>
+
+            </Footer>
         </Container>
     )
 }
