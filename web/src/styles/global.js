@@ -11,11 +11,12 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: ${ ({ theme }) => theme.COLORS.DARK_400};
-    
         letter-spacing: 0; 
         text-decoration: none;
         margin-bottom: 0px;
         text-transform: none;
+        height: 2400px;
+        font-style: normal;
         
     }
 
@@ -37,6 +38,11 @@ const GlobalStyle = createGlobalStyle`
         font-size: 14px;
         line-height: 160%;
 
+
+    }
+
+    h2,p,span,h3{
+        color: ${ ({ theme }) => theme.COLORS.LIGHT_300 };
 
     }
 

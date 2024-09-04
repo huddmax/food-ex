@@ -15,9 +15,8 @@ export const Container = styled.div`
 
 export const Brand = styled.div`
 
-    margin-top: 164px ;
     width: 1120px;
-    height: 260px;
+    min-height: 260px;
     background: ${ ({ theme }) => theme.COLORS.GRADIENT_200 };
     border-radius: 8px;
 
@@ -27,6 +26,9 @@ export const Brand = styled.div`
 
     display: flex;
     position: relative;
+
+    margin-top: 164px ;
+    margin-bottom: 62px;
 
     div {
         width: 422px;
@@ -56,21 +58,27 @@ export const Brand = styled.div`
 
 `;
 
-export const Menu = styled.div`
-
-`;
-
 export const Img = styled.div`    
     background: url(${image1});
     background-size: cover;
     width: 656px;
     height: 412px;
     left: 130px;
-    top: 129px;
+    top: 82px;
 
     position: absolute;
     z-index: 1;
 
     object-fit: cover
 `;
+
+export const Menu = styled.div`
+    display: flex;
+    width: 1122px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 23px;
+`;
+
 
