@@ -79,6 +79,13 @@ export const Menu = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 23px;
+
+    div {
+
+        display: flex;
+        gap: 24px;
+
+    }
 `;
 
 

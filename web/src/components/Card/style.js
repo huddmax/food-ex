@@ -17,22 +17,32 @@ export const Container = styled.div`
 
     border-radius: 8px;
     border: 1px solid ${({theme})=> theme.COLORS.DARK_300};
-    background: ${({theme})=> theme.COLORS.DARK_200};
+    background: ${({ theme }) => theme.COLORS.DARK_200};
+
+    position: relative;
+    
+    > FavoriteIcon {
+        position: absolute;
+        right: 18px;
+        top: 16px;
+    }
 
 
 `;
 
-export const DishImage = styled.image`
+export const DishImage = styled.img`
 width: 176px;
 height: 176px;
 flex-shrink: 0;
-object-fit: cover;
+/* object-fit: cover; */
 
 /* background: lightgray 50% / cover no-repeat; */
 
 `;
 
 export const DishName = styled.div`
+
+    width: 256px;
 
     p {
 
@@ -73,5 +83,13 @@ export const DishValue = styled.div`
         font-weight: 400;
         line-height: 160%;
     }
+
+`;
+
+export const CardButtons = styled.div`
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
 
 `;
