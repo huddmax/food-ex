@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import image1 from '../../assets/image1.png';
+import image1 from '/src/assets/image1.png';
 
 
 export const Container = styled.div`
@@ -85,6 +85,15 @@ export const Menu = styled.div`
         display: flex;
         gap: 24px;
 
+    }
+
+    h2 {
+        color: ${ ({theme}) => theme.COLORS.LIGHT_300 };
+        
+        font-family: Poppins;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 140%;
     }
 `;
 

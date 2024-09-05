@@ -1,30 +1,134 @@
 import { Card } from "../../components/Card";
-import { DishDescription } from "../../components/Card/style";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Brand, Container, Menu, Img } from "./style";
 
-let dishes = [
-    {
-        id: 1,
-        name: "Torradas de Parma",
-        description: "Presunto de parma e rúcula em um pão com fermentação natural.",
-        value: "25,97",
-        img:"../../assets/images/dishes/dish1.png",
-
-    },
- 
-
-];
 
 
 export function Home() {
+
+    let menuItens = [
+        {
+            id: 1,
+            name: "Salada Ravanello",
+            description: "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.",
+            value: "49,97",
+            img:"/src/assets/images/dishes/saladaRavanello.png",
+            category:"meal",
+    
+        },
+        {
+            id: 2,
+            name: "Torradas de Parma",
+            description: "Presunto de parma e rúcula em um pão com fermentação natural.",
+            value: "25,97",
+            img: "/src/assets/images/dishes/torradasDeParma.png",
+            category:"meal",
+    
+        },
+        {
+            id: 3,
+            name: "Spaguetti Gambe",
+            description: "Massa fresca com camarões e pesto.",
+            value: "79,97",
+            img: "/src/assets/images/dishes/spaguettiGambe.png",
+            category:"meal",
+    
+        },
+        {
+            id: 4,
+            name: "Salada Ravanello",
+            description: "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.",
+            value: "49,97",
+            img: "/src/assets/images/dishes/saladaRavanello.png",
+            category:"meal",
+    
+        },
+        {
+            id: 5,
+            name: "",
+            description: "",
+            value: ",97",
+            img: "",
+            category:"dessert",
+    
+        },
+        {
+            id: 6,
+            name: "",
+            description: "",
+            value: ",97",
+            img: "",
+            category:"dessert",
+    
+        },
+        {
+            id: 7,
+            name: "",
+            description: "",
+            value: ",97",
+            img: "",
+            category:"dessert",
+    
+        },
+        {
+            id: 8,
+            name: "",
+            description: "",
+            value: ",97",
+            img: "",
+            category:"dessert",
+    
+        },
+        {
+            id: 9,
+            name: "",
+            description: "",
+            value: ",97",
+            img: "",
+            category:"drink",
+    
+        },
+        {
+            id: 10,
+            name: "",
+            description: "",
+            value: ",97",
+            img: "",
+            category:"drink",
+    
+        },
+        {
+            id: 11,
+            name: "",
+            description: "",
+            value: ",97",
+            img: "",
+            category:"drink",
+    
+        },
+        {
+            id: 12,
+            name: "",
+            description: "",
+            value: ",97",
+            img: "",
+            category:"drink",
+    
+        },
+     
+    
+    ];
+
+    const meals = menuItens.filter(item => item.category === "meal");
+    const desserts = menuItens.filter(item => item.category === "dessert");
+    const drinks = menuItens.filter(item => item.category === "drink");
+    
+
     return (
         <Container>
 
-            <Header>
-                
-            </Header>
+            <Header/>
 
                 <Img/>
             <Brand>
@@ -43,7 +147,7 @@ export function Home() {
 
                 <div>
 
-                    {dishes.map(dish => (
+                    {meals.map(dish => (
                         
                         <Card
                         key={dish.id}

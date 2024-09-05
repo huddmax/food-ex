@@ -92,4 +92,11 @@ export const CardButtons = styled.div`
     align-items: center;
     gap: 16px;
 
+    button {
+
+        padding: 12px 24px;
+        width: 92px;
+        height: 48px;
+    }
+
 `;

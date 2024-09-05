@@ -5,8 +5,8 @@ export const Container = styled.button`
 
     width: 100%;
     height: 48px;
-    border: 0;
     padding: 12px 32px;
+    border: 0;
     border-radius: 5px;
 
     background-color: ${ ({ theme }) => theme.COLORS.TOMATO_100 };
