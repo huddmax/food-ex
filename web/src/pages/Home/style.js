@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import image1 from '/src/assets/image1.png';
+import image from '/src/assets/backgroundHome.png';
 
 
 export const Container = styled.div`
@@ -15,31 +15,38 @@ export const Container = styled.div`
 
 export const Brand = styled.div`
 
-    width: 1120px;
+    min-width: 1120px;
+    max-width: 1120px;
     min-height: 260px;
     background: ${ ({ theme }) => theme.COLORS.GRADIENT_200 };
     border-radius: 8px;
-
+    
+    display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
 
-    display: flex;
-    position: relative;
+    /* position: relative; */
 
     margin-top: 164px ;
     margin-bottom: 62px;
 
-    div {
+    /* div {
         width: 422px;
         height: 80px;
+    } */
+    
+    .text {
         margin-right: 100px;
+        margin-left: 8px;
+        margin-bottom: 92px;
+        min-width: 422px;
     }
-
+    
     span,h2 {
         color: ${({theme}) =>theme.COLORS.LIGHT_300 }
     }
-
+    
     h2 {
         font-family: 'Poppins';
         font-style: normal;
@@ -47,29 +54,48 @@ export const Brand = styled.div`
         font-size: 40px;
         line-height: 140%;
     }
-
+    
     span{
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
         line-height: 100%;
+        margin-bottom: 92px;
     }
 
+    img {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+    
+    border: none;
+    outline: none;
+    box-shadow: none;
 `;
 
 export const Img = styled.div`    
-    background: url(${image1});
+    /* background: url(${image}); */
+    min-width: 632px;
+    min-height: 406px;
+    
+    /* 
     background-size: cover;
-    width: 656px;
-    height: 412px;
-    left: 130px;
-    top: 82px;
-
     position: absolute;
     z-index: 1;
-
     object-fit: cover
+    */
+    
+    opacity: 0.8;
+    flex-shrink: 0;
+    background: url(${image}) 0px 0px / 100% 197.562% no-repeat;
+
+    transform: scaleX(-1);
+    
+    
+
+
 `;
 
 export const Menu = styled.div`
@@ -79,6 +105,7 @@ export const Menu = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 23px;
+    margin-bottom: 46px;
 
     div {
 

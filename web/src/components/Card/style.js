@@ -43,6 +43,7 @@ flex-shrink: 0;
 export const DishName = styled.div`
 
     width: 256px;
+    min-height: 34px;
 
     p {
 
@@ -56,6 +57,8 @@ export const DishName = styled.div`
 `;
 
 export const DishDescription = styled.div`
+
+    min-height: 44px;
 
     p {
 
@@ -72,7 +75,7 @@ export const DishDescription = styled.div`
 `;
 
 export const DishValue = styled.div`
-
+    min-height: 52px;
     p {
 
         color: ${({theme})=>theme.COLORS.CAKE_200 };
@@ -88,6 +91,7 @@ export const DishValue = styled.div`
 
 export const CardButtons = styled.div`
 
+    min-height: 48px;
     display: flex;
     align-items: center;
     gap: 16px;

@@ -19,4 +19,8 @@ export const Container = styled.div`
         line-height: 160%;
     }
 
+    svg {
+        cursor: pointer;
+    }
+
 `;

@@ -90,6 +90,12 @@ const GlobalStyle = createGlobalStyle`
     
     }
 
+    img {
+        
+        border: none;
+        outline: none;
+    }
+
 `;
 
 

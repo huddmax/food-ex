@@ -37,82 +37,82 @@ export function Home() {
         },
         {
             id: 4,
-            name: "Salada Ravanello",
-            description: "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.",
-            value: "49,97",
-            img: "/src/assets/images/dishes/saladaRavanello.png",
+            name: "Salada Molla",
+            description: "Massa fresca com camarões e pesto.",
+            value: "69,97",
+            img: "/src/assets/images/dishes/saladaMolla.png",
             category:"meal",
     
         },
         {
             id: 5,
-            name: "",
-            description: "",
-            value: ",97",
-            img: "",
+            name: "Prugna Pie",
+            description: "Torta de ameixa com massa amanteigada, polvilho em açúcar.",
+            value: "79,97",
+            img: "/src/assets/images/dishes/prugnaPie.png",
             category:"dessert",
     
         },
         {
             id: 6,
-            name: "",
-            description: "",
-            value: ",97",
-            img: "",
+            name: "Peachy Pastrie",
+            description: "Delicioso folheado de pêssego com folhas de hortelã.",
+            value: "32,97",
+            img: "/src/assets/images/dishes/peachyPastrie.png",
             category:"dessert",
     
         },
         {
             id: 7,
-            name: "",
-            description: "",
-            value: ",97",
-            img: "",
+            name: "Macarons",
+            description: "Farinha de amêndoas, manteiga, claras e açúcar.",
+            value: "79,97",
+            img: "/src/assets/images/dishes/macarons.png",
             category:"dessert",
     
         },
         {
             id: 8,
-            name: "",
-            description: "",
-            value: ",97",
-            img: "",
+            name: "Bolo de damasco",
+            description: "Damascos frescos em uma massa sem glúten.",
+            value: "19,97",
+            img: "/src/assets/images/dishes/boloDeDamasco.png",
             category:"dessert",
     
         },
         {
             id: 9,
-            name: "",
-            description: "",
-            value: ",97",
-            img: "",
+            name: "Espresso",
+            description: "Café cremoso feito na temperatura e pressões perfeitas.",
+            value: "15,97",
+            img: "/src/assets/images/dishes/espresso.png",
             category:"drink",
     
         },
         {
             id: 10,
-            name: "",
-            description: "",
-            value: ",97",
-            img: "",
+            name: "Suco de Maracujá",
+            description: "Suco de maracujá gelado, cremoso, docinho.",
+            value: "13,97",
+            img: "/src/assets/images/dishes/sucoDeMaracuja.png",
             category:"drink",
     
         },
         {
             id: 11,
-            name: "",
-            description: "",
-            value: ",97",
-            img: "",
+            name: "Tè d'autunno",
+            description: "Chá de anis, canela e limão. Sinta o outono italiano.",
+            value: "19,97",
+            img: "/src/assets/images/dishes/teDAutunno.png",
             category:"drink",
     
         },
         {
             id: 12,
-            name: "",
-            description: "",
-            value: ",97",
-            img: "",
+            name: "Pomo Bourbon",
+            description: "Maçã, whisky, canela. On the rocks.",
+            value: "69,69",
+            img: "/src/assets/images/dishes/pomoBourbon.png",
             category:"drink",
     
         },
@@ -130,10 +130,10 @@ export function Home() {
 
             <Header/>
 
-                <Img/>
             <Brand>
+                <Img/>
                 
-                <div>
+                <div className="text">
                     <h2>Sabores inigualáveis</h2>
                     <span>Sinta o cuidado do preparo com ingredientes selecionados</span>
                 </div>
@@ -148,6 +148,52 @@ export function Home() {
                 <div>
 
                     {meals.map(dish => (
+                        
+                        <Card
+                        key={dish.id}
+                        dishName={dish.name}
+                        dishDescription={dish.description}
+                        dishValue={dish.value}
+                        dishImg={dish.img}
+                        >
+                    </Card>
+                    ))}
+                 
+
+                </div>
+            </Menu>
+            <Menu>
+
+                <div>
+                    <h2>Sobremesas</h2>
+                </div>
+
+                <div>
+
+                    {desserts.map(dish => (
+                        
+                        <Card
+                        key={dish.id}
+                        dishName={dish.name}
+                        dishDescription={dish.description}
+                        dishValue={dish.value}
+                        dishImg={dish.img}
+                        >
+                    </Card>
+                    ))}
+                 
+
+                </div>
+            </Menu>
+            <Menu>
+
+                <div>
+                    <h2>Bebidas</h2>
+                </div>
+
+                <div>
+
+                    {drinks.map(dish => (
                         
                         <Card
                         key={dish.id}
