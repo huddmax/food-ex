@@ -7,9 +7,9 @@ export const Container = styled.div`
     align-items: flex-start;
     
     label {
-        display: block; /* Faz o rótulo ocupar toda a largura disponível */
-        margin-bottom: 8px; /* Espaço entre o rótulo e o input */
-        font-size: 14px; /* Tamanho da fonte do rótulo */
+        display: block; 
+        margin-bottom: 8px; 
+        font-size: 14px; 
         color: ${({theme}) => theme.COLORS.LIGHT_400};
         text-align: left;
     }

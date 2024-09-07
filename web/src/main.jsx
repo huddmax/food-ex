@@ -6,6 +6,8 @@ import theme  from './styles/theme';
 import { ThemeProvider } from 'styled-components';
 
 import { Home } from './pages/Home';
+import { SignUp } from './pages/SignUp';
+import { SignIn } from './pages/SignIn';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,7 +16,9 @@ createRoot(document.getElementById('root')).render(
 
       <GlobalStyle/>
         
-      <Home />
+      <SignIn/>
+      {/* <SignUp/> */}
+      {/* <Home /> */}
 
     </ThemeProvider>
 

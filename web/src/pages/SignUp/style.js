@@ -16,7 +16,7 @@ export const Container = styled.div`
 export const Form = styled.form`
 
     width: 476px;
-    height: 540px;
+    height: 621px;
 
     padding: 64px;
     display: flex;
@@ -27,33 +27,53 @@ export const Form = styled.form`
     border-radius: 16px;
 
     background-color: ${ ({ theme }) => theme.COLORS.DARK_700};
-
-
+    gap: 32px;
+    
     > h2 {
-        font-size: 24px;
-        margin-bottom: 32px;
+        
+            color: ${ ({ theme }) => theme.COLORS.LIGHT_100};
+
+            font-family: Poppins;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 140%;
 
     }
 
-    > p {
+    p{
         font-size: 14px;
-        color: ${ ({ theme }) => theme.COLORS.RED};
-
+        height: 24px;
+        color: ${ ({ theme }) => theme.COLORS.LIGHT_100};
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        
+        cursor: pointer;
     }
 
     > a {
-        margin-top:32px;
+       
         text-decoration: none;
 
     }
 
     
      > div {
-        margin-bottom: 32px;
+        
+
+        input {
+            border: none;
+            background-color: ${({theme})=> theme.COLORS.DARK_900};
+        }
     }
 
+    button {
+        height: 48px;
+    }
 
-    
 
     
 `;
@@ -79,5 +99,12 @@ export const Background = styled.div`
     text-transform: none; 
 
 
+    svg {
+        color: ${({theme})=> theme.COLORS.CAKE_100};
+    }
+    
+    h1 {
+        color: ${({theme})=> theme.COLORS.LIGHT_100};
+    }
 
     `;

@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container } from "./style";
 
 export function InputWithText({ title, id, ...rest}) {
     return (

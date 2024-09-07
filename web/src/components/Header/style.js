@@ -2,9 +2,11 @@ import { styled } from 'styled-components';
 
 export const Container = styled.header`
 
+    /* min-width: 1368px; */
     width: 100%;
-    height: 104px;
+    min-height: 104px;
     background-color: ${({ theme }) => theme.COLORS.DARK_600};
+    padding: 24px 123px;
     
 
     display: flex;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 export const Container = styled.div`
     height:100vh;
@@ -16,7 +17,7 @@ export const Container = styled.div`
 export const Form = styled.form`
 
     width: 476px;
-    height: 621px;
+    height: 540px;
 
     padding: 64px;
     display: flex;
@@ -25,50 +26,38 @@ export const Form = styled.form`
     align-items: center;
     text-align: center;
     border-radius: 16px;
+    gap: 32px;
 
     background-color: ${ ({ theme }) => theme.COLORS.DARK_700};
 
 
-    > h2 {
-        font-size: 24px;
-        margin-bottom: 32px;
+    h2 {
+        color: ${({theme})=> theme.COLORS.LIGHT_100};
+        text-align: center;
+        font-family: Poppins;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%;
 
     }
 
     > p {
         font-size: 14px;
-        height: 24px;
-        color: ${ ({ theme }) => theme.COLORS.RED};
+        color: ${({theme})=> theme.COLORS.LIGHT_100};
 
+        cursor: pointer;
     }
 
-    > a {
-        margin-top:32px;
-        text-decoration: none;
 
-    }
+
 
     
-     > div {
-        margin-bottom: 32px;
-
-        input {
-            border: none;
-            background-color: ${({theme})=> theme.COLORS.DARK_900};
-        }
-    }
-
-    button {
-        /* height: 48px; */
-    }
-
 
     
 `;
 
 export const Background = styled.div`
-    
-
     
     display: flex;
     align-items: center;
@@ -86,6 +75,13 @@ export const Background = styled.div`
     margin-bottom: 0px;
     text-transform: none; 
 
+    h1 {
+        color: ${({theme})=> theme.COLORS.LIGHT_100};
+    }
+    
+    svg {
+        color: ${({theme})=> theme.COLORS.CAKE_100};
 
+    }
 
     `;

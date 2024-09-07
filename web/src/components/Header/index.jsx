@@ -23,10 +23,9 @@ export function Header() {
                 </div>
             </Explorer>
 
-            <Search>
-            {/* <SignOutIcon/> */}
+            <Search htmlFor="search" >
             <SearchIcon/>
-            <Input placeholder="Busque por pratos ou ingredientes">
+            <Input placeholder="Busque por pratos ou ingredientes" id="search">
             </Input>
             </Search>
 
