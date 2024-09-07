@@ -1,7 +1,13 @@
 import { Card } from "../../components/Card";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { Brand, Container, Menu, Img } from "./style";
+import { Brand, Container, Menu, Img, InvisibleCardLeft, InvisibleCardRight } from "./style";
+
+
+
+import '@splidejs/splide/dist/css/splide.min.css';
+//@ts-ignore
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 
 
@@ -145,22 +151,30 @@ export function Home() {
                     <h2>Refeições</h2>
                 </div>
 
-                <div>
-
-                    {meals.map(dish => (
+                <Splide
+                    options={{
+                        type: 'loop', // Para fazer o carrossel em loop
+                        perPage: 4, // Número de slides visíveis (dois centrais em foco)
+                        focus: 'start', // Foco no centro
+                        gap: 'rem',
+                        pagination: true, // Desativar paginação (se não for necessária)
+                        arrows: true, 
+                    }}>
+                    
+                    {meals.map((dish) => (
+                        <SplideSlide key={dish.id}>
                         
-                        <Card
-                        key={dish.id}
-                        dishName={dish.name}
-                        dishDescription={dish.description}
-                        dishValue={dish.value}
-                        dishImg={dish.img}
-                        >
-                    </Card>
+                            <Card
+                                dishName={dish.name}
+                                dishDescription={dish.description}
+                                dishValue={dish.value}
+                                dishImg={dish.img}
+                            />
+                        </SplideSlide>
                     ))}
-                 
+  
+                </Splide>
 
-                </div>
             </Menu>
             <Menu>
 
@@ -168,22 +182,30 @@ export function Home() {
                     <h2>Sobremesas</h2>
                 </div>
 
-                <div>
-
-                    {desserts.map(dish => (
+                <Splide
+                    options={{
+                        type: 'loop', // Para fazer o carrossel em loop
+                        perPage: 4, // Número de slides visíveis (dois centrais em foco)
+                        focus: 'start', // Foco no centro
+                        gap: 'rem',
+                        pagination: true, // Desativar paginação (se não for necessária)
+                        arrows: true, 
+                    }}>
+                    
+                    {desserts.map((dish) => (
+                        <SplideSlide key={dish.id}>
                         
-                        <Card
-                        key={dish.id}
-                        dishName={dish.name}
-                        dishDescription={dish.description}
-                        dishValue={dish.value}
-                        dishImg={dish.img}
-                        >
-                    </Card>
+                            <Card
+                                dishName={dish.name}
+                                dishDescription={dish.description}
+                                dishValue={dish.value}
+                                dishImg={dish.img}
+                            />
+                        </SplideSlide>
                     ))}
-                 
+  
+                </Splide>
 
-                </div>
             </Menu>
             <Menu>
 
@@ -191,22 +213,30 @@ export function Home() {
                     <h2>Bebidas</h2>
                 </div>
 
-                <div>
-
-                    {drinks.map(dish => (
+                <Splide
+                    options={{
+                        type: 'loop', // Para fazer o carrossel em loop
+                        perPage: 4, // Número de slides visíveis (dois centrais em foco)
+                        focus: 'start', // Foco no centro
+                        gap: 'rem',
+                        pagination: true, // Desativar paginação (se não for necessária)
+                        arrows: true, 
+                    }}>
+                    
+                    {drinks.map((dish) => (
+                        <SplideSlide key={dish.id}>
                         
-                        <Card
-                        key={dish.id}
-                        dishName={dish.name}
-                        dishDescription={dish.description}
-                        dishValue={dish.value}
-                        dishImg={dish.img}
-                        >
-                    </Card>
+                            <Card
+                                dishName={dish.name}
+                                dishDescription={dish.description}
+                                dishValue={dish.value}
+                                dishImg={dish.img}
+                            />
+                        </SplideSlide>
                     ))}
-                 
+  
+                </Splide>
 
-                </div>
             </Menu>
 
 

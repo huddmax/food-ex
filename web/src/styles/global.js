@@ -2,6 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
+    /* :root {
+        --font-size: 16px;
+        font-size: 16px;
+    } */
+
     * {
         padding: 0;
         margin: 0;

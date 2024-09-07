@@ -5,14 +5,18 @@ export const Container = styled.div`
     width: 304px;
     min-height: 462px;
 
+    flex-shrink: 0;
     display:flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
+    justify-content: center;
 
 
     gap: 15px;
     padding: 24px;
+
+    margin-left: 13.5px;
+    margin-right: 13.5px;
 
 
     border-radius: 8px;

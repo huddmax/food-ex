@@ -106,6 +106,7 @@ export const Menu = styled.div`
     align-items: flex-start;
     gap: 23px;
     margin-bottom: 46px;
+    /* position: absolute; */
 
     div {
 
@@ -122,6 +123,84 @@ export const Menu = styled.div`
         font-weight: 500;
         line-height: 140%;
     }
+
+    .splide {
+        min-width: 1121px;
+        max-width: 1122px;
+        
+    }
+
+    .splide__slide {
+        /* display: inline-block; /* Isso deve garantir que os slides apareçam lado a lado */
+        /* width: auto; */
+        
+        div {
+            justify-content: center;
+        }
+    
+    }
+
+
+    .splide__track {
+        /* display: flex;
+        justify-content: space-between;
+         */
+    }
+
+
+        
+        .is-visible{
+            opacity: 0.25;
+        }
+
+        .is-active + .is-visible ~ .is-visible {
+            opacity: 1;
+        }
+
+        .is-active + .is-visible{
+            opacity: 1;
+        }
+
+        [aria-hidden="true"] {
+            opacity: 0.25;
+        }
+
+
+
 `;
 
+export const InvisibleCardLeft = styled.div`
 
+    width: 277px;
+    height: 448px;
+    flex-shrink: 0;
+    background: ${({ theme }) => theme.COLORS.GRADIENT_100 };
+    color: red;
+    
+    /* position: relative; */
+    /* z-index: -33; */
+
+`;
+export const InvisibleCardRight = styled.div`
+
+    width: 224px;
+    height: 448px;
+    flex-shrink: 0;
+    background: ${({ theme }) => theme.COLORS.GRADIENT_100 };
+    background: blue;
+    
+    /* position: relative; */
+    /* z-index: -33; */
+
+    /* &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: ${({ theme }) => theme.COLORS.GRADIENT_100};
+        z-index: -1; 
+    } */
+
+`;
