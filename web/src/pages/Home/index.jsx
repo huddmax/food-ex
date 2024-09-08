@@ -3,17 +3,12 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Brand, Container, Menu, Img, InvisibleCardLeft, InvisibleCardRight } from "./style";
 
-
-
 import '@splidejs/splide/dist/css/splide.min.css';
 //@ts-ignore
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 
-
-export function Home() {
-
-    let menuItens = [
+    export const menuItens = [
         {
             id: 1,
             name: "Salada Ravanello",
@@ -125,11 +120,13 @@ export function Home() {
      
     
     ];
-
+    
     const meals = menuItens.filter(item => item.category === "meal");
     const desserts = menuItens.filter(item => item.category === "dessert");
     const drinks = menuItens.filter(item => item.category === "drink");
     
+export function Home() {
+
 
     return (
         <Container>

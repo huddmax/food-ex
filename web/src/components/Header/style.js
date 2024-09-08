@@ -33,7 +33,7 @@ export const Container = styled.header`
     
     `;
 
-export const Search = styled.div`
+export const Search = styled.label`
 
     width: 581px;
     height: 48px;

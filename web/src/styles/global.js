@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         margin-bottom: 0px;
         text-transform: none;
-        height: 2400px;
+        /* height: 2400px; */
         font-style: normal;
         
     }
