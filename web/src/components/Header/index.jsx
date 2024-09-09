@@ -7,10 +7,20 @@ import { ExplorerIcon } from '../../assets/icons/ExplorerIcon';
 import { ReceiptIcon } from '../../assets/icons/ReceiptIcon';
 import { SearchIcon } from '../../assets/icons/SearchIcon';
 
+import { useNavigate } from "react-router-dom";
 
 
 
 export function Header() {
+    
+    const navigate = useNavigate();
+    const goToSignIn = () => {
+        navigate("/login");
+    };
+    const goToDish = () => {
+        navigate("/dish");
+    };
+
     return (
         <Container>
 
@@ -19,7 +29,6 @@ export function Header() {
                 <ExplorerIcon />
                 <div>
                     <h2>food explorer</h2>
-                    {/* <span>Admin</span> */}
                 </div>
             </Explorer>
 
@@ -29,14 +38,17 @@ export function Header() {
             </Input>
             </Search>
 
-            <Button
-                title="Pedidos (0)"
-                icon={<ReceiptIcon/>}
-            >
-            </Button>
+            <div onClick={goToDish}>
+                <Button
+                    title="Pedidos (0)"
+                    icon={<ReceiptIcon />}
+                    >
+                </Button>
+            </div>
             
-            
+            <div onClick={goToSignIn}>
             <SignOutIcon/>
+            </div>
             
             
         </Container>

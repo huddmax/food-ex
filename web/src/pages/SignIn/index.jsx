@@ -5,9 +5,13 @@ import { Button } from '../../components/Button';
 import { Container, Background, Form } from './style';
 import { ExplorerIcon } from '../../assets/icons/ExplorerIcon';
 
+import { useNavigate } from 'react-router-dom';
 
 export function SignIn() {
-
+    const navigate = useNavigate();
+    const goToSignUp = () => {
+        navigate("/register");
+    }
     return (
         <Container>
             <Form>
@@ -35,10 +39,10 @@ export function SignIn() {
                 
                 />
 
-            
+                
                 <Button title="Entrar"/>
                     
-                <p>
+                <p onClick={goToSignUp}>
                     Criar uma conta
                 </p>
 

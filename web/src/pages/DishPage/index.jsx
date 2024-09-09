@@ -7,17 +7,29 @@ import { menuItens } from '../Home';
 import { LeftArrow } from '../../assets/icons/LeftArrow';
 import { Tag } from '../../components/Tag';
 
+import { useNavigate } from 'react-router-dom';
+
 const selectedDish = menuItens.find((item)=>item.id==1)
 
-export function DishPage() {
+export function DishPage() { 
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    }
+
+
     return (
         <Container>
             <Header/>
 
             <All>
 
-                <div>
-                    <Button title={"voltar"} className="voltar" icon={<LeftArrow/>}>
+                <div onClick={goBack} >
+                    <Button
+                        title={"voltar"}
+                        className="voltar"
+                        icon={<LeftArrow />}
+                    >
                       
                     </Button>
                 </div>

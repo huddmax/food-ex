@@ -4,9 +4,13 @@ import {InputWithText} from '../../components/InputWithText'
 
 import { Container, Form, Background } from './style';
 
+import { useNavigate } from 'react-router-dom';
 
 export function SignUp() {
-   
+    const navigate = useNavigate();
+    const goToLogin = () => {
+        navigate("/login");
+    }
 
     return (
         <Container>
@@ -39,7 +43,9 @@ export function SignUp() {
 
                 />
                 <Button title="Criar Conta" />
-                <p>Já tenho uma conta</p>
+
+                <p onClick={goToLogin}>Já tenho uma conta</p>
+                
             </Form>
 
             <Background>

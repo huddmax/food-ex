@@ -1,7 +1,9 @@
 import { Card } from "../../components/Card";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { Brand, Container, Menu, Img, InvisibleCardLeft, InvisibleCardRight } from "./style";
+import { Brand, Container, Menu, Img } from "./style";
+
+import { useNavigate } from "react-router-dom";
 
 import '@splidejs/splide/dist/css/splide.min.css';
 //@ts-ignore
@@ -119,13 +121,17 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
         },
      
     
-    ];
+];
     
-    const meals = menuItens.filter(item => item.category === "meal");
-    const desserts = menuItens.filter(item => item.category === "dessert");
-    const drinks = menuItens.filter(item => item.category === "drink");
+const meals = menuItens.filter(item => item.category === "meal");
+const desserts = menuItens.filter(item => item.category === "dessert");
+const drinks = menuItens.filter(item => item.category === "drink");
     
 export function Home() {
+    const navigate = useNavigate();
+    const goToSignIn = () => {
+        navigate("/login");
+    };
 
 
     return (
@@ -181,11 +187,11 @@ export function Home() {
 
                 <Splide
                     options={{
-                        type: 'loop', // Para fazer o carrossel em loop
-                        perPage: 4, // Número de slides visíveis (dois centrais em foco)
-                        focus: 'start', // Foco no centro
+                        type: 'loop', 
+                        perPage: 4, 
+                        focus: 'start', 
                         gap: 'rem',
-                        pagination: true, // Desativar paginação (se não for necessária)
+                        pagination: true, 
                         arrows: true, 
                     }}>
                     
@@ -212,11 +218,11 @@ export function Home() {
 
                 <Splide
                     options={{
-                        type: 'loop', // Para fazer o carrossel em loop
-                        perPage: 4, // Número de slides visíveis (dois centrais em foco)
-                        focus: 'start', // Foco no centro
+                        type: 'loop', 
+                        perPage: 4, 
+                        focus: 'start',
                         gap: 'rem',
-                        pagination: true, // Desativar paginação (se não for necessária)
+                        pagination: true, 
                         arrows: true, 
                     }}>
                     

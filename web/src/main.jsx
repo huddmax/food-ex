@@ -1,30 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
 import GlobalStyle from './styles/global';
 import theme  from './styles/theme';
 import { ThemeProvider } from 'styled-components';
 
-import { Home } from './pages/Home';
-import { HomeAdmin } from './pages/HomeAdmin';
-import { SignUp } from './pages/SignUp';
-import { SignIn } from './pages/SignIn';
-import { DishPage } from './pages/DishPage';
+import { Routes } from './routes' ;
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
     <ThemeProvider theme={theme}>
-
       <GlobalStyle/>
         
-      {/* <SignIn/> */}
-      {/* <SignUp/> */}
-      {/* <Home /> */}
-      <HomeAdmin/>
-      {/* <DishPage/> */}
+      <Routes />
 
     </ThemeProvider>
-
   </StrictMode>,
 )
