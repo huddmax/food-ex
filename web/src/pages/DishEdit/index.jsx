@@ -11,7 +11,7 @@ import { UploadIcon } from '../../assets/icons/UploadIcon';
 
 import { useNavigate } from "react-router-dom";
 
-export function DishAdd() {
+export function DishEdit() {
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
@@ -34,7 +34,7 @@ export function DishAdd() {
                     </Button>
                 </div>
 
-            <h2>Adicionar Prato</h2>
+            <h2>Editar Prato</h2>
             
             <Main>
                 <DishesInfo>
@@ -50,7 +50,7 @@ export function DishAdd() {
  
                     <div id="dishName">
                         <label htmlFor="dishNameInput">Nome</label>
-                        <input type="text" name="dishNameInput" id="dishNameInput" placeholder="Ex: Salada Ceasar"/>
+                        <input type="text" name="dishNameInput" id="dishNameInput" placeholder="Salada Ceasar"/>
                     </div>
                        
  
@@ -99,12 +99,13 @@ export function DishAdd() {
                         <textarea
                             name="descriptionOfDish"
                             id="descriptionOfDish"
-                            placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                            placeholder="A Salada César é uma opção refrescante para o verão."
                         />
                 </Description>
                     
                 <FinalButtons>
                         
+                        <button className="deleteButton">Excluir prato</button>
                         <button className="saveButton">Salvar alterações</button>
 
                         

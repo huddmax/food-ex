@@ -219,13 +219,12 @@ export const FinalButtons = styled.div`
     flex-direction: row;
     align-items: flex-end;
     gap: 32px;
-   
-    .saveButton{
+
+    button {
         display: flex;
         justify-content: center;
         align-items: center;
         
-        min-width: 180px;
         max-height: 48px;
         
         margin: 0;
@@ -238,10 +237,20 @@ export const FinalButtons = styled.div`
         font-weight: 500;
         line-height: 24px;
         text-align: center;
-
+    
         border: none;
+    }
+   
+    .saveButton{
+        
+        min-width: 180px;
     
         background: ${({ theme }) => theme.COLORS.TOMATO_400};
+    }
+    
+    .deleteButton {
+        background: ${({ theme }) => theme.COLORS.DARK_800};
+        width: 135px;
     }
 
 `;
