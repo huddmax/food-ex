@@ -8,15 +8,14 @@
   },
   "author": "Hudson Machado",
   "license": "ISC",
-
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.12",
     "tsx": "^4.16.2",
     "typescript": "^5.5.4"
   },
-  
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "zod": "^3.23.8"
   }
 }
