@@ -7,3 +7,6 @@ Estou usando TypeScript para Desenvolver:
     - npm i tsx@4.16.2 -D
     - npx tsc --init
     - npm i --save-dev @types/express
+
+
+Instalei o @Zod para validar os campos de formulário
