@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "API REST para gerenciar meu website",
+  "description": "API REST para gerenciar meu RESTaurante",
   "main": "src/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts"
