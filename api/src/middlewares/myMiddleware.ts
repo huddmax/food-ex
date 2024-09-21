@@ -4,7 +4,7 @@ export function myMiddleware(request:Request, response:Response, next:NextFuncti
     
     request.user_id = "1234"
 
-    console.log("Passou pelo Middleware GLOBAL!")
+    console.log("Você passou pelo Middleware GLOBAL!")
 
     return next()
 }
