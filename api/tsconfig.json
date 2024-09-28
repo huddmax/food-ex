@@ -1,16 +1,18 @@
+
+
 {
   "compilerOptions": {
-    
     "target": "ES2022",                                 
-    "lib": ["ES2023"], 
-
-    /* Modules */
+ "lib": ["ES2023"], 
+    //Modules
     "module": "node16",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     
-    /* Type Checking */
+    //Type Checking
     "strict": true, 
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noImplicitAny": false,
   }
 }
+

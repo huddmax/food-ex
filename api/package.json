@@ -4,17 +4,26 @@
   "description": "API REST para gerenciar meu RESTaurante",
   "main": "src/server.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "migrate:create": "node-pg-migrate create --m src/database/migrations --envPath .env.dev --j ts",
+    "migrate:up": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/node-pg-migrate up --m src/database/migrations --envPath .env.dev --tsconfig tsconfig.json",
+    "migrate:down": "npx ts-node --loader ts-node/esm -r tsconfig-paths/register ./node_modules/.bin/node-pg-migrate up --m src/database/migrations --envPath .env.dev --tsconfig tsconfig.json",
+    "migrate": "npx ts-node ./node_modules/.bin/node-pg-migrate -j ts"
   },
   "author": "Hudson Machado",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/express": "^4.17.21",
-    "@types/node": "^20.14.12",
+    "@types/node": "^20.16.10",
+    "node-pg-migrate": "^7.7.0",
+    "pg": "^8.13.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "tsx": "^4.16.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "zod": "^3.23.8"
   }
