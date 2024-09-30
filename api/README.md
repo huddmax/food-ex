@@ -10,5 +10,6 @@ Estou usando TypeScript para Desenvolver:
 
 
 Instalei o @Zod para validar os campos de formulário
+Instalei o Knex
 
 

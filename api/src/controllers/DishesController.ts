@@ -21,6 +21,8 @@ class DishesController {
         console.log("Método GET foi chamado");
 
         response.send(`Usuário: ${user} \n limit: ${limit}` );
+
+    
     }
 
     create(request: Request, response: Response) {

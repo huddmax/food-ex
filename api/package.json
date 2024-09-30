@@ -7,7 +7,8 @@
     "dev": "brew services start postgresql@14 && npm run migrate:up && tsx watch src/server.ts",
     "migrate:create": "node-pg-migrate create --m src/database/migrations --envPath .env.dev --j ts",
     "migrate:up": "npx ts-node -r tsconfig-paths/register ./node_modules/.bin/node-pg-migrate up --m src/database/migrations --envPath .env.dev --tsconfig tsconfig.json",
-    "migrate": "npx ts-node ./node_modules/.bin/node-pg-migrate -j ts"
+    "migrate": "npx ts-node ./node_modules/.bin/node-pg-migrate -j ts",
+    "knex":"node --import tsx ./node_modules/.bin/knex"
   },
   "author": "Hudson Machado",
   "license": "MIT",
@@ -25,6 +26,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "knex": "^3.1.0",
     "zod": "^3.23.8"
   }
 }
