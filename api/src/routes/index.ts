@@ -7,6 +7,7 @@ const routes = Router();
 
 // usando o middleware global
 routes.use(myMiddleware)
+// routes.use("/dishes", appRoutes)
 routes.use("/users", appRoutes)
 
 

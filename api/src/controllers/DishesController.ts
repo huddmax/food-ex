@@ -4,6 +4,14 @@ import { z } from "zod";
 
 class DishesController {
 
+    update(request: Request, response: Response) {
+
+        const { name } = request.body;
+        
+        response.status(201).json();
+       
+    }
+
     /*
         Controllers devem ter no máximo 5 métodos:
 
@@ -48,6 +56,8 @@ class DishesController {
         console.log("Método POST foi chamado");
         response.status(201).json({ user, user_id: request.user_id});
     }
+
+   
 }
 
 

@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction, response } from "express";
+import { knex } from "./database/knex";
 import { ZodError } from "zod";
 
 import { routes } from "./routes";
@@ -14,7 +15,40 @@ app.use(express.json());
 app.use(routes);
 
 
+app.post("/dishes", async (request: Request, response: Response) => {
+    const { name, price, description, category } = request.body;
 
+    await knex("dishes").insert({ name, price, description, category });
+    // await knex.raw("INSERT INTO courses (name) VALUES (?)", [name]);
+
+    return response.status(201).json();
+});
+
+app.get("/dishes", async (request: Request, response: Response) => {
+    // const dishes = await knex.raw("SELECT * FROM dishes");
+
+    const dishes = await knex("dishes").select().orderBy("name");
+    
+   return response.status(200).json(dishes)
+})
+
+app.put("/dishes/:id", async (request: Request, response: Response) => {
+    
+    const { name } = request.body;
+    const { id } = request.params;
+
+    await knex("dishes").update({ name }).where({ id })
+    
+   return response.json()
+})
+
+app.delete("/dishes/:id", async (request: Request, response: Response) => {
+    const { id } = request.params;
+
+    await knex("dishes").delete().where({ id });
+
+    return response.json()
+ })
 
 
 
