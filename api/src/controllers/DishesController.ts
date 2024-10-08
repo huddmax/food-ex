@@ -1,15 +1,18 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { AppError } from "../utils/AppError";
 import { z } from "zod";
 
 class DishesController {
 
-    update(request: Request, response: Response) {
+    async update(request: Request, response: Response, next: NextFunction) {
+        try {
 
-        const { name } = request.body;
-        
-        response.status(201).json();
-       
+            const { name } = request.body;
+            return response.status(201).json({ message: "Dish updated!" });
+
+        } catch (error) {
+            next(error);
+        }
     }
 
     /*

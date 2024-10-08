@@ -4,6 +4,7 @@ import { ZodError } from "zod";
 
 import { routes } from "./routes";
 import { AppError } from "./utils/AppError";
+import { errorHandler } from "./middlewares/errorHandler";
 
 const PORT = 3333;
 const app = express();
@@ -126,5 +127,8 @@ app.use((error: any, request: Request, response: Response, _: NextFunction) => {
 
     response.status(500).json({ message: error.message });
 })
+
+// passei a responsabilidade de tratar os erros para o errorHandler
+app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`))

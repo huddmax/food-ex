@@ -3,7 +3,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",                                 
- "lib": ["ES2023"], 
+    "lib": ["ES2023"], 
     //Modules
     "module": "node16",
     "esModuleInterop": true,
@@ -13,6 +13,10 @@
     "strict": true, 
     "skipLibCheck": true,
     // "noImplicitAny": false,
+
+    "paths": {
+      "@/*": ["./src/*"]
+    },
   }
 }
 
