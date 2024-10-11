@@ -16,31 +16,19 @@ app.use(express.json());
 app.use(routes);
 
 
-app.post("/dishes", async (request: Request, response: Response) => {
-    const { name, price, description, category } = request.body;
-
-    await knex("dishes").insert({ name, price, description, category });
-    // await knex.raw("INSERT INTO courses (name) VALUES (?)", [name]);
-
-    return response.status(201).json();
-});
-
-app.get("/dishes", async (request: Request, response: Response) => {
-    // const dishes = await knex.raw("SELECT * FROM dishes");
-
-    const dishes = await knex("dishes").select().orderBy("name");
-    
-   return response.status(200).json(dishes)
-})
 
 app.put("/dishes/:id", async (request: Request, response: Response) => {
     
     const { name } = request.body;
     const { id } = request.params;
-
-    await knex("dishes").update({ name }).where({ id })
-    
-   return response.json()
+    try {
+        
+        await knex("dishes").update({ name }).where({ id })
+        
+        return response.json()
+    } catch (error) {
+        return response.status(500).json({ message: (error as Error).message });
+    }
 })
 
 app.delete("/dishes/:id", async (request: Request, response: Response) => {
@@ -74,9 +62,15 @@ app.delete("/dishes/:id", async (request: Request, response: Response) => {
 app.post("/tags", async (request: Request, response: Response) => {
     const { name, dish_id } = request.body;
     
-    await knex("tags").insert({ name, dish_id });
-    
-    return response.status(201).json();
+    try {
+        
+        await knex("tags").insert({ name, dish_id });
+        
+        return response.status(201).json();
+
+    } catch (error) {
+        return response.status(400).json({ message: (error as Error).message });
+    }
     
   });
   
@@ -125,7 +119,7 @@ app.use((error: any, request: Request, response: Response, _: NextFunction) => {
        return response.status(400).json({ message: "Validation error!", issues: error.format() })
     }
 
-    response.status(500).json({ message: error.message });
+   return response.status(500).json({ message: error.message });
 })
 
 // passei a responsabilidade de tratar os erros para o errorHandler
