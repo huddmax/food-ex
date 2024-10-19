@@ -17,19 +17,19 @@ app.use(routes);
 
 
 
-app.put("/dishes/:id", async (request: Request, response: Response) => {
+// app.put("/dishes/:id", async (request: Request, response: Response) => {
     
-    const { name } = request.body;
-    const { id } = request.params;
-    try {
+//     const { name } = request.body;
+//     const { id } = request.params;
+//     try {
         
-        await knex("dishes").update({ name }).where({ id })
+//         await knex("dishes").update({ name }).where({ id })
         
-        return response.json()
-    } catch (error) {
-        return response.status(500).json({ message: (error as Error).message });
-    }
-})
+//         return response.json()
+//     } catch (error) {
+//         return response.status(500).json({ message: (error as Error).message });
+//     }
+// })
 
 app.delete("/dishes/:id", async (request: Request, response: Response) => {
     const { id } = request.params;

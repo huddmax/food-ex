@@ -12,4 +12,5 @@ export function errorHandler(error: any, request: Request, response: Response, _
     }
 
     return response.status(500).json({ message: error.message });
+    
 }

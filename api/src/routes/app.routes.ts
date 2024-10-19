@@ -10,7 +10,7 @@ const appRoutes = Router();
 const dishesController = new DishesController;
 appRoutes.get("/", dishesController.index);
 appRoutes.post("/", dishesController.create);
-appRoutes.put("/", dishesController.update);
+appRoutes.put("/:id", dishesController.update);
 
 
 
