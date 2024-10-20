@@ -43,8 +43,13 @@ class DishesController {
 
             const { name, price, description, category } = bodySchema.parse(request.body);
 
+            const dishExists = await knex<DishRepository>("dishes").select("id").where({ name }).first();
+
+            if (dishExists) {
+                return response.status(409).json({ message: "Dish already exists" });
+            }
+
             await knex<DishRepository>("dishes").insert({ name, price, description, category });
-        
             return response.status(201).json();
             
         } catch (error) { 
@@ -87,7 +92,29 @@ class DishesController {
         }
     }
 
-    
+    async remove(request: Request, response: Response, next: NextFunction) {
+        try {
+            const id = z.string()
+                .transform((value) => Number(value))
+                .refine((value) => !isNaN(value), { message: "id must be a number" })
+                .parse(request.params.id);
+
+            const dishExists = await knex<DishRepository>("dishes")
+                .select('id')
+                .where({ id })
+                .first();  // Traz o primeiro resultado
+
+            if (!dishExists) {
+                return response.status(404).json({ message: "Dish not found" });
+            }
+
+            await knex<DishRepository>("dishes").delete().where({ id });
+            return response.status(200).json({ message: "Dish deleted successfully" });
+        
+        } catch (error) {
+            next(error);
+        }
+    }
    
    
 }
