@@ -1,4 +1,5 @@
 import { knex } from "@/database/knex";
+import { AppError } from "@/utils/AppError";
 import { Request, Response, NextFunction } from "express";
 import { z } from "zod";
 
@@ -62,7 +63,7 @@ class TagsController {
             console.log(tagExists);
 
             if (!tagExists) {
-                return response.status(400).json({ message: "tag dont exists"});
+                throw new AppError("tag dont exists", 404);
             }
 
 
@@ -85,7 +86,7 @@ class TagsController {
             const tagExists = await knex<TagsRepository>("tags").select("id").where({ id }).first();
 
             if (!tagExists) {
-                return response.status(400).json({ message: "tag dont exists"});
+                throw new AppError("tag dont exists", 404);
             }
 
             await knex<TagsRepository>("tags").delete().where({ id });
@@ -95,7 +96,6 @@ class TagsController {
             next(error);
         }
     }
-
 
 }
 

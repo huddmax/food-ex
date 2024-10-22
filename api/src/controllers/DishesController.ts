@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { z } from "zod";
 import { knex } from "@/database/knex";
+import { AppError } from "@/utils/AppError";
 
 class DishesController {
     
@@ -80,12 +81,12 @@ class DishesController {
             .first();  // Traz o primeiro resultado
 
             if (!dishExists) {
-            return response.status(404).json({ message: "Dish not found" });
+                throw new AppError("Dish not found", 404);
             }
             
             
             await knex<DishRepository>("dishes").update({ name, price, description, category }).where({ id })
-            return response.status(201).json();
+            return response.status(200).json();
         
         } catch (error) {
             next(error);
@@ -105,7 +106,7 @@ class DishesController {
                 .first();  // Traz o primeiro resultado
 
             if (!dishExists) {
-                return response.status(404).json({ message: "Dish not found" });
+                throw new AppError("Dish not found", 404);
             }
 
             await knex<DishRepository>("dishes").delete().where({ id });
