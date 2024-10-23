@@ -35,23 +35,24 @@ class DishesController {
 
         try {
 
+            
             const bodySchema = z.object({
                 name: z.string().trim().min(3),
                 price: z.number().gt(0, { message: "Price must be greater than 0" }),
                 description: z.string().trim().min(12),
                 category: z.string().trim(),
             })
-
+            
             const { name, price, description, category } = bodySchema.parse(request.body);
-
+            
             const dishExists = await knex<DishRepository>("dishes").select("id").where({ name }).first();
-
+            
             if (dishExists) {
                 return response.status(409).json({ message: "Dish already exists" });
             }
 
             await knex<DishRepository>("dishes").insert({ name, price, description, category });
-            return response.status(201).json();
+            return response.status(201).json({ message: `Dish created successfully \n ${request.user?.role}` });
             
         } catch (error) { 
             next(error);

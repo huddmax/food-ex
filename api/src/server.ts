@@ -1,5 +1,4 @@
-import express, { Request, Response, NextFunction, response } from "express";
-import { knex } from "./database/knex";
+import express from "express";
 
 import { routes } from "./routes";
 import { errorHandler } from "./middlewares/errorHandler";
@@ -14,7 +13,7 @@ app.use(express.json());
 app.use(routes);
 
 
-
+let message = process.env.PGUSER;
         
   
 // esse tem que ficar abaxio de todos e logo acima do listen, para poder capturar os erros
