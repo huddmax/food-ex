@@ -27,7 +27,7 @@ class TagsController {
             const bodySchema = z.object({
                 name: z.string().trim().min(5),
                 dish_id: z.number().positive(),
-            })
+            });
             
             const { name, dish_id } = bodySchema.parse(request.body);
 

@@ -3,6 +3,7 @@ import { Router } from "express";
 import { dishesRoutes } from "./dishes.routes";
 import { tagsRoutes } from "./tags.routes";
 import { sessionsRoutes } from "./sessions.routes";
+import { usersRoutes } from "./users.routes";
 
 // middlewares
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
@@ -15,9 +16,10 @@ const routes = Router();
 
 
 // aqui aponta pra onde as rotas devem ir
-routes.use("/dishes", dishesRoutes)
-routes.use("/tags", tagsRoutes)
-routes.use("/sessions", sessionsRoutes)
+routes.use("/dishes", dishesRoutes);
+routes.use("/tags", tagsRoutes);
+routes.use("/sessions", sessionsRoutes);
+routes.use("/users", usersRoutes);
 
 
 export { routes }
