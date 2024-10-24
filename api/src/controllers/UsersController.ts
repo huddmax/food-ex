@@ -15,9 +15,11 @@ class UsersController {
             
             const { name, email, password } = bodySchema.parse(request.body);
 
-            if (name.toLocaleLowerCase() === "admin") {
-                throw new AppError("Invalid user name", 400);
-             }
+            const existingAdmin = await knex<UsersRepository>('users').where({ name: 'admin' }).first();
+
+            if (existingAdmin && name.toLocaleLowerCase() == 'admin') {
+                throw new AppError("Invalid name", 400);
+            }
 
 
             const existingUser = await knex<UsersRepository>('users').where({ email }).first();

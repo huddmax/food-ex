@@ -1,5 +1,7 @@
-import { AppError } from '@/utils/AppError';
 import { Request, Response, NextFunction } from 'express';
+import { AppError } from '@/utils/AppError';
+import { knex } from "../database/knex";
+import bcrypt from "bcrypt";
 
 import { authConfig } from '@/configs/auth';
 import { sign } from 'jsonwebtoken';
@@ -10,24 +12,25 @@ class SessionsController {
     async create(request: Request, response: Response, next: NextFunction) {
         try {
             
-            const { username, password } = request.body;
+            const { email, password } = request.body;
             
-            const fakeUser = {
-                id: 1,
-                username: "admin",
-                password: "123456",
-                role: "customer",
+            const user = await knex<UsersRepository>("users").where({ email }).first();
+
+            if (!user) {
+                throw new AppError("Email or password incorrect", 401);
             }
-            
-            if (username !== fakeUser.username || password !== fakeUser.password) {
-                throw new AppError("Incorrect username or password", 401);
+
+            const passwordMatch = await bcrypt.compare(password, user.password);
+
+            if (!passwordMatch) {
+                throw new AppError("Email or password incorrect", 401);
             }
             
             const { secret, expiresIn } = authConfig.jwt;
 
-            const token = sign({ role: fakeUser.role }, secret, {
+            const token = sign({ role: user.role }, secret, {
                 expiresIn,
-                subject: String(fakeUser.id),
+                subject: String(user.id),
             });
             
             return response.json({ token });
