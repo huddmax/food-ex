@@ -17,7 +17,7 @@ export function SignUp() {
     const navigate = useNavigate();
     
     const goToLogin = () => {
-        navigate("/login");
+        navigate("/");
     }
 
 
@@ -76,24 +76,10 @@ export function SignUp() {
 
                 />
 
-
-
                 <Button
                     title="Criar Conta"
                     onClick={handleSignUp}
                 />
-
-                
-
-
-
-
-
-
-
-
-
-
 
                 <p
                     onClick={goToLogin}

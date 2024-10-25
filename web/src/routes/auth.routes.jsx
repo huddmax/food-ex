@@ -4,7 +4,7 @@ import { SignUp } from "../pages/SignUp";
 
 
 
-export function AuthRotes() {
+export function AuthRoutes() {
     return (
         <Routes>
             <Route path="/" element={<SignIn/>} />

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useAuth } from '../../hooks/auth';
 
 import { InputWithText } from '../../components/InputWithText'
 import { Button } from '../../components/Button';
@@ -8,6 +10,19 @@ import { ExplorerIcon } from '../../assets/icons/ExplorerIcon';
 import { useNavigate } from 'react-router-dom';
 
 export function SignIn() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const { signIn } = useAuth();
+
+    function handleSignIn() {
+        if (!email || !password) {
+            return alert("Preencha todos os campos");
+        }
+        signIn({ email, password });
+    }
+
+
     const navigate = useNavigate();
     const goToSignUp = () => {
         navigate("/register");
@@ -25,6 +40,7 @@ export function SignIn() {
                     id="inputEmail"
                     type="text" 
                     autoComplete="userName"
+                    onChange={(e) => setEmail(e.target.value)}
                 
                 />
 
@@ -36,11 +52,12 @@ export function SignIn() {
                     placeholder="No mínimo 6 caracteres" 
                     type="password" 
                     autoComplete="current-password"
+                    onChange={(e) => setPassword(e.target.value)}
                 
                 />
 
                 
-                <Button title="Entrar"/>
+                <Button title="Entrar" onClick={handleSignIn} />
                     
                 <p onClick={goToSignUp}>
                     Criar uma conta

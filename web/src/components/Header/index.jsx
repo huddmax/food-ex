@@ -9,9 +9,13 @@ import { SearchIcon } from '../../assets/icons/SearchIcon';
 
 import { useNavigate } from "react-router-dom";
 
+import { useAuth } from '../../hooks/auth';
+
 
 
 export function Header() {
+
+    const { signOut } = useAuth();
     
     const navigate = useNavigate();
     const goToSignIn = () => {
@@ -46,7 +50,7 @@ export function Header() {
                 </Button>
             </div>
             
-            <div onClick={goToSignIn}>
+            <div onClick={signOut}>
             <SignOutIcon/>
             </div>
             
