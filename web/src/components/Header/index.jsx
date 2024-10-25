@@ -18,9 +18,7 @@ export function Header() {
     const { signOut } = useAuth();
     
     const navigate = useNavigate();
-    const goToSignIn = () => {
-        navigate("/login");
-    };
+   
     const goToDish = () => {
         navigate("/dish");
     };
