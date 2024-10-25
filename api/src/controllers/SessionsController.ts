@@ -33,7 +33,7 @@ class SessionsController {
                 subject: String(user.id),
             });
             
-            return response.json({ token });
+            return response.json({ token, user });
         } catch (error) {
             next(error);
         }

@@ -3,6 +3,7 @@ import cors from "cors";
 
 import { routes } from "./routes";
 import { errorHandler } from "./middlewares/errorHandler";
+import { uploadConfig } from "./configs/upload";
 
 const PORT = 3333;
 
@@ -11,6 +12,8 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
+
+app.use("/files", express.static(uploadConfig.UPLOAD_FOLDER))
 
 // tiramos as rotas daqui e deixamos separadas!
 app.use(routes);
