@@ -15,6 +15,26 @@ class DishesController {
     * remove - DELETE para deletar um registro.
     */
    
+    async show(request: Request, response: Response, next: NextFunction) {
+        try {
+            const id = z.string()
+                .transform((value) => Number(value))
+                .refine((value) => !isNaN(value), { message: "id must be a number" })
+                .parse(request.params.id);
+
+            const dish = await knex<DishRepository>("dishes").select().where({ id }).first();
+            
+            if (!dish) {
+                throw new AppError("Dish not found", 404);
+            }
+            
+            return response.status(200).json(dish);
+        
+        } catch (error) {
+            next(error);
+        }
+    }
+
    async index(request: Request, response: Response, next: NextFunction) {
     
        try {

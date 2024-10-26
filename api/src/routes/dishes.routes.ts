@@ -18,6 +18,7 @@ const dishesController = new DishesController;
 dishesRoutes.use(ensureAuthenticated);
 // todos logados acessam o get
 dishesRoutes.get("/", dishesController.index);
+dishesRoutes.get("/:id", dishesController.show);
 
 //Middleware deixando as rotas abaixo protegidas contra users que não são admin
 dishesRoutes.use(verifyUserAuthorization(["admin"]));
