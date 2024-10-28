@@ -11,7 +11,18 @@ import { UploadIcon } from '../../assets/icons/UploadIcon';
 
 import { useNavigate } from "react-router-dom";
 
+import { useState } from "react";
+
 export function DishAdd() {
+    const [dishName, setDishName] = useState("");
+    const [dishCategory, setDishCategory] = useState("");
+    const [dishPrice, setDishPrice] = useState("");
+    const [dishDescription, setDishDescription] = useState("");
+    const [dishImage, setDishImage] = useState("");
+
+
+
+
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
@@ -50,7 +61,14 @@ export function DishAdd() {
  
                     <div id="dishName">
                         <label htmlFor="dishNameInput">Nome</label>
-                        <input type="text" name="dishNameInput" id="dishNameInput" placeholder="Ex: Salada Ceasar"/>
+                            <input
+                                type="text"
+                                name="dishNameInput"
+                                id="dishNameInput"
+                                placeholder="Ex: Salada Ceasar"
+                                value={dishName}
+                                onChange={e => setDishName(e.target.value)}
+                            />
                     </div>
                        
  
@@ -59,7 +77,12 @@ export function DishAdd() {
                             <label htmlFor="dishCategory">Categoria</label>
                             <div className="selectWrapper">
 
-                            <select id="dishCategory">
+                                <select
+                                    id="dishCategory"
+                                    name="dishCategory"
+                                    value={dishCategory}
+                                    onChange={e => setDishCategory(e.target.value)}
+                                >
                                 <option value="meal">Refeição</option>
                                 <option value="dessert">Sobremesa</option>
                                 <option value="drink">Bebida</option>
@@ -81,11 +104,14 @@ export function DishAdd() {
                     <TagsAndPrice>
 
                         <TagsBar />
+                        
                         <InputWithText
                             className="price"
                             id={"priceOfDish"}
                             title={"Preço"}
                             placeholder="R$ 00,00"
+                            value={dishPrice}
+                            onChange={e => setDishPrice(e.target.value)}
                         />
                         
                     </TagsAndPrice>
@@ -100,6 +126,8 @@ export function DishAdd() {
                             name="descriptionOfDish"
                             id="descriptionOfDish"
                             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                            value={dishDescription}
+                            onChange={e => setDishDescription(e.target.value)}
                         />
                 </Description>
                     

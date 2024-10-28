@@ -5,13 +5,21 @@ import { Button } from "../../components/Button";
 import { TagsBar } from "../../components/TagsBar";
 import { InputWithText } from '../../components/InputWithText'
 
-import { DonwArrow } from "../../assets/icons/DonwArrow";
 import { LeftArrow } from "../../assets/icons/LeftArrow";
 import { UploadIcon } from '../../assets/icons/UploadIcon';
 
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 
 export function DishEdit() {
+    const [dishName, setDishName] = useState("");
+    const [dishCategory, setDishCategory] = useState("");
+    const [dishPrice, setDishPrice] = useState("");
+    const [dishDescription, setDishDescription] = useState("");
+
+
+
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);

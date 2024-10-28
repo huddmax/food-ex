@@ -2,7 +2,7 @@ import { Container,All,Main,DishInfo } from './style';
 import { Button } from '../../components/Button';
 import { HeaderAdmin } from '../../components/HeaderAdmin';
 import { Footer } from '../../components/Footer';
-import { Stepper } from '../../components/Stepper';
+// import { Stepper } from '../../components/Stepper';
 import { menuItens } from '../Home';
 import { LeftArrow } from '../../assets/icons/LeftArrow';
 import { Tag } from '../../components/Tag';
