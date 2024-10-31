@@ -15,7 +15,8 @@ export function SignIn() {
 
     const { signIn } = useAuth();
 
-    function handleSignIn() {
+    function handleSignIn(event) {
+        event.preventDefault();
         if (!email || !password) {
             return alert("Preencha todos os campos");
         }
@@ -29,7 +30,7 @@ export function SignIn() {
     }
     return (
         <Container>
-            <Form>
+            <Form onSubmit={handleSignIn}>
                 
                 
                 <h2>Faça Login</h2>
@@ -57,7 +58,8 @@ export function SignIn() {
                 />
 
                 
-                <Button title="Entrar" onClick={handleSignIn} />
+                <Button title="Entrar" type="submit" />
+                {/* <button type="submit">Entrar</button>  */}
                     
                 <p onClick={goToSignUp}>
                     Criar uma conta

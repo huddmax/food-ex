@@ -21,30 +21,31 @@ export function SignUp() {
     }
 
 
-    async function handleSignUp() {
+    async function handleSignUp(event) {
+        event.preventDefault();
         if (!name || !email || !password) {
             return alert("Preencha todos os campos");
         }
 
-        await api.post("/users", { name, email, password })
-            .then(() => {
-                alert("Usuário cadastrado com sucesso");
-                navigate("/login");
-            })
-            .catch(() => {
-                if (error.response) {
-                    alert(error.response.data.message);
-                }
-                else {
-                    alert("Erro ao cadastrar usuário");
-                }
-        });
+        try {
+            await api.post("/users", { name, email, password })
+            alert("Usuário cadastrado com sucesso");
+            goToLogin();
+
+        } catch(error) {
+            if (error.response) {
+                alert(error.response.data.message);
+            }
+            else {
+                alert("Erro ao cadastrar usuário");
+            }
+        };
     }
 
     
     return (
         <Container>
-            <Form>
+            <Form onSubmit={handleSignUp}>
              
                 <h2>Crie sua conta</h2>
                 
@@ -78,7 +79,7 @@ export function SignUp() {
 
                 <Button
                     title="Criar Conta"
-                    onClick={handleSignUp}
+                    type="submit"
                 />
 
                 <p
