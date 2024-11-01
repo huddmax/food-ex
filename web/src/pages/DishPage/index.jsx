@@ -3,20 +3,40 @@ import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { Stepper } from '../../components/Stepper';
-import { menuItens } from '../Home';
 import { LeftArrow } from '../../assets/icons/LeftArrow';
 import { Tag } from '../../components/Tag';
 
+import { api, getImageUrl } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-const selectedDish = menuItens.find((item)=>item.id==1)
+// import { menuItens } from '../Home';
+// const selectedDish = menuItens.find((item)=>item.id==13)
 
 export function DishPage() { 
+    const [dish, setDish] = useState([]);
+
+    const { id } = useParams();
+
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
     }
 
+    useEffect(() => {
+        async function fetchDish() {
+            try {
+                const response = await api.get(`/dishes/${id}`);
+                setDish(response.data);
+            } catch (error) {
+                console.error("Erro ao buscar o prato:", error);
+            }
+        }
+        fetchDish();
+    }, [id]);
+    
 
     return (
         <Container>
@@ -35,12 +55,12 @@ export function DishPage() {
                 </div>
                 
                 <Main>
-                    <img src={selectedDish.img} alt={selectedDish.name} />
+                     <img src={getImageUrl(dish.image)} alt={dish.name}/>
 
                     <DishInfo>
 
-                        <h2> {selectedDish.name} </h2>
-                        <p>{selectedDish.description}</p>
+                        <h2> {dish.name} </h2>
+                        <p>{dish.description}</p>
 
                         <div className="tags">
                             <Tag title="alface"/>
@@ -54,7 +74,7 @@ export function DishPage() {
                         
                         <div className="steeper">
                         <Stepper />
-                        <Button title={"incluir R$ "+selectedDish.value}/>
+                        <Button title={"incluir R$ " + dish.price}/>
                         </div>
                         
                     </DishInfo>

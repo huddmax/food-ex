@@ -3,23 +3,34 @@ import { FavoriteIcon } from "../../assets/icons/FavoriteIcon";
 import { Stepper } from "../Stepper";
 import { Button } from "../Button";
 
-export function Card({id, dishName, dishDescription,dishValue,dishImg,...rest}) {
+
+
+import { useNavigate } from "react-router-dom";
+
+export function Card({id, dishName, dishDescription,dishValue,dishImg,onClickDish,...rest}) {
+
+    const navigate = useNavigate();
+  
+    const goToDish = (id) => {
+        navigate(`/dish/${id}`);
+    };
 
     return (
-        <Container>
+        <Container >
 
             <FavoriteIcon />
             
             <DishImage
                 src={dishImg}
                 alt={dishName}
+                onClick={onClickDish}
             />
            
-            <DishName>
+            <DishName onClick={onClickDish}>
                 <p> {dishName} &gt; </p>
             </DishName>
 
-            <DishDescription>
+            <DishDescription onClick={onClickDish}>
                 <p>{dishDescription}</p>
             </DishDescription>
             

@@ -16,15 +16,15 @@ import { useEffect, useState } from "react";
     
 
 export const menuItens = [
-    // {
-    //     id: 1,
-    //     name: "Salada Ravanello",
-    //     description: "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.",
-    //     value: "49,97",
-    //     img:"/src/assets/images/dishes/saladaRavanello.png",
-    //     category:"meal",
+    {
+        id: 1,
+        name: "Salada Ravanello",
+        description: "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.",
+        value: "49,97",
+        img:"/src/assets/images/dishes/saladaRavanello.png",
+        category:"meal",
 
-    // },
+    },
     // {
     //     id: 2,
     //     name: "Torradas de Parma",
@@ -145,21 +145,24 @@ export function Home() {
 
 
     const navigate = useNavigate();
-    const goToSignIn = () => {
-        navigate("/login");
+  
+    const goToDish = (id) => {
+        navigate(`/dish/${id}`);
     };
 
     useEffect(() => {
         async function fetchDishes() {
             try {
+                console.log("useEffect executado")
+                
                 const response = await api.get("/dishes");
                 const dishes = response.data;
-    
+                
                 setMeals(dishes.filter(dish => dish.category === "meals"));
                 setDesserts(dishes.filter(dish => dish.category === "desserts"));
                 setDrinks(dishes.filter(dish => dish.category === "drinks"));
             } catch (error) {
-                console.error("Error fetching dishes:", error);
+                console.error("Error fetching dishes", error);
             }
         }
     
@@ -204,6 +207,8 @@ export function Home() {
                                 dishDescription={dish.description}
                                 dishValue={dish.price}
                                 dishImg={getImageUrl(dish.image)}
+
+                                onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>
                     ))}

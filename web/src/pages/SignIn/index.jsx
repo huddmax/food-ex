@@ -23,7 +23,6 @@ export function SignIn() {
         signIn({ email, password });
     }
 
-
     const navigate = useNavigate();
     const goToSignUp = () => {
         navigate("/register");
@@ -31,7 +30,6 @@ export function SignIn() {
     return (
         <Container>
             <Form onSubmit={handleSignIn}>
-                
                 
                 <h2>Faça Login</h2>
 
@@ -42,35 +40,27 @@ export function SignIn() {
                     type="text" 
                     autoComplete="userName"
                     onChange={(e) => setEmail(e.target.value)}
-                
                 />
 
                 <InputWithText
                     title="Senha"
                     id="inputPassword"
-
-
                     placeholder="No mínimo 6 caracteres" 
                     type="password" 
                     autoComplete="current-password"
                     onChange={(e) => setPassword(e.target.value)}
-                
                 />
 
-                
                 <Button title="Entrar" type="submit" />
-                {/* <button type="submit">Entrar</button>  */}
                     
                 <p onClick={goToSignUp}>
                     Criar uma conta
                 </p>
-
             </Form>
 
             <Background>
-                 <ExplorerIcon/>
+                <ExplorerIcon />
                 <h1>food explorer</h1>
-                
             </Background>
 
         </Container>

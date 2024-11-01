@@ -42,6 +42,8 @@ flex-shrink: 0;
 
 /* background: lightgray 50% / cover no-repeat; */
 
+cursor: pointer;
+
 `;
 
 export const DishName = styled.div`
@@ -58,11 +60,14 @@ export const DishName = styled.div`
     line-height: 140%;
     }
 
+    cursor: pointer;
+
 `;
 
 export const DishDescription = styled.div`
 
     min-height: 44px;
+    cursor: pointer;
 
     p {
 

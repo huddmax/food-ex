@@ -32,6 +32,7 @@ export const All = styled.div`
     }
 `;
 export const Main = styled.div`
+    box-sizing: border-box;
     display: flex;
     width: 687px;
     flex-direction: row;
@@ -39,6 +40,11 @@ export const Main = styled.div`
     
     img {
         margin: 42px 48px 110px 122px;
+        height: 352px;
+        width: 353px !important;
+        object-fit: cover;
+        box-sizing: border-box;
+        /* background-color: #f0f0f0; */
     }
 
     h2 {
@@ -66,6 +72,8 @@ export const DishInfo = styled.div`
 
     margin-top: 87px;
     gap: 24px;
+
+
 
     /* div:first-child */
     .tags {

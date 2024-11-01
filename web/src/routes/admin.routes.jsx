@@ -12,7 +12,7 @@ export function AdminRoutes() {
 
             {/* rotas do admin */}
             <Route path="/" element={<HomeAdmin/>} />
-            <Route path="/dishadmin" element={<DishPageAdmin />} />
+            <Route path="/dish/:id" element={<DishPageAdmin />} />
             <Route path="/dishadd" element={<DishAdd />} />
             <Route path="/dishedit" element={<DishEdit />} />
 
