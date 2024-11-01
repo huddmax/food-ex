@@ -1,7 +1,7 @@
 import { Knex } from "knex";
 
 export async function seed(knex: Knex): Promise<void> {
-    await knex("dishes").insert([
+    const dishes = await knex("dishes").insert([
         {
             name: "Salada Ravanello",
             description: "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.",
@@ -86,5 +86,72 @@ export async function seed(knex: Knex): Promise<void> {
             image: "pomoBourbon.png",
             category: "drinks",
         },
-    ]);
+    ]).returning("id");
+
+    const tagsData = [
+        { name: "alface", dish_id: dishes[0].id },
+        { name: "cebola", dish_id: dishes[0].id },
+        { name: "pão naan", dish_id: dishes[0].id },
+        { name: "pepino", dish_id: dishes[0].id },
+        { name: "rabanete", dish_id: dishes[0].id },
+        { name: "tomate", dish_id: dishes[0].id },
+
+        // Torradas de Parma
+        { name: "presunto de parma", dish_id: dishes[1].id },
+        { name: "rúcula", dish_id: dishes[1].id },
+        { name: "pão com fermentação natural", dish_id: dishes[1].id },
+
+        // Spaguetti Gambe
+        { name: "massa fresca", dish_id: dishes[2].id },
+        { name: "camarões", dish_id: dishes[2].id },
+        { name: "pesto", dish_id: dishes[2].id },
+
+        // Salada Molla
+        { name: "folhas verdes", dish_id: dishes[3].id },
+        { name: "molho agridoce", dish_id: dishes[3].id },
+        { name: "gergelim", dish_id: dishes[3].id },
+
+        // Prugna Pie
+        { name: "ameixa", dish_id: dishes[4].id },
+        { name: "massa amanteigada", dish_id: dishes[4].id },
+        { name: "açúcar", dish_id: dishes[4].id },
+
+        // Peachy Pastrie
+        { name: "pêssego", dish_id: dishes[5].id },
+        { name: "hortelã", dish_id: dishes[5].id },
+        { name: "folheado", dish_id: dishes[5].id },
+
+        // Macarons
+        { name: "farinha de amêndoas", dish_id: dishes[6].id },
+        { name: "manteiga", dish_id: dishes[6].id },
+        { name: "claras", dish_id: dishes[6].id },
+        { name: "açúcar", dish_id: dishes[6].id },
+
+        // Bolo de damasco
+        { name: "damasco", dish_id: dishes[7].id },
+        { name: "massa sem glúten", dish_id: dishes[7].id },
+
+        // Espresso
+        { name: "café", dish_id: dishes[8].id },
+        { name: "cremoso", dish_id: dishes[8].id },
+
+        // Suco de Maracujá
+        { name: "maracujá", dish_id: dishes[9].id },
+        { name: "cremoso", dish_id: dishes[9].id },
+        { name: "gelado", dish_id: dishes[9].id },
+
+        // Tè d'autunno
+        { name: "anis", dish_id: dishes[10].id },
+        { name: "canela", dish_id: dishes[10].id },
+        { name: "limão", dish_id: dishes[10].id },
+
+        // Pomo Bourbon
+        { name: "maçã", dish_id: dishes[11].id },
+        { name: "whisky", dish_id: dishes[11].id },
+        { name: "canela", dish_id: dishes[11].id },
+    ];
+    
+
+    await knex("tags").insert(tagsData);
 }
+
