@@ -240,6 +240,7 @@ export function Home() {
                                 dishDescription={dish.description}
                                 dishValue={dish.price}
                                 dishImg={getImageUrl(dish.image)}
+                                onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>
                     ))}
@@ -271,6 +272,7 @@ export function Home() {
                                 dishDescription={dish.description}
                                 dishValue={dish.price}
                                 dishImg={getImageUrl(dish.image)}
+                                onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>
                     ))}

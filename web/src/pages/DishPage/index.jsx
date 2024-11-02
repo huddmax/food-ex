@@ -17,6 +17,7 @@ import { useState } from 'react';
 
 export function DishPage() { 
     const [dish, setDish] = useState([]);
+    const [tags, setTags] = useState([]);
 
     const { id } = useParams();
 
@@ -30,6 +31,9 @@ export function DishPage() {
             try {
                 const response = await api.get(`/dishes/${id}`);
                 setDish(response.data);
+
+                const responseTags = await api.get(`/tags/${id}`);
+                setTags(responseTags.data);
             } catch (error) {
                 console.error("Erro ao buscar o prato:", error);
             }
@@ -62,13 +66,12 @@ export function DishPage() {
                         <h2> {dish.name} </h2>
                         <p>{dish.description}</p>
 
+
                         <div className="tags">
-                            <Tag title="alface"/>
-                            <Tag title="cebola"/>
-                            <Tag title="pão naan"/>
-                            <Tag title="pepino"/>
-                            <Tag title="rabanete"/>
-                            <Tag title="tomate"/>
+
+                            {tags.map((tag) => (
+                                <Tag title={tag.name} />
+                            ))}
                             
                         </div>
                         
