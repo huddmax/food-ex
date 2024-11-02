@@ -19,6 +19,7 @@ dishesRoutes.use(ensureAuthenticated);
 // todos logados acessam o get
 dishesRoutes.get("/", dishesController.index);
 dishesRoutes.get("/:id", dishesController.show);
+dishesRoutes.get("/search/s", dishesController.search);
 
 //Middleware deixando as rotas abaixo protegidas contra users que não são admin
 dishesRoutes.use(verifyUserAuthorization(["admin"]));

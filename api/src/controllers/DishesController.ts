@@ -15,6 +15,31 @@ class DishesController {
     * remove - DELETE para deletar um registro.
     */
    
+    // DishesController.ts
+async search(request: Request, response: Response, next: NextFunction) {
+    const { name } = request.query;
+
+    if (!name) {
+        return response.status(400).json({ error: "Search query is required" });
+    }
+
+    try {
+        const dishes = await knex("dishes")
+            .leftJoin("tags", "dishes.id", "tags.dish_id")
+            .whereILike("dishes.name", `%${name}%`)
+            .orWhereILike("dishes.description", `%${name}%`)
+            .orWhereILike("tags.name", `%${name}%`)
+            .select("dishes.*")
+            .groupBy("dishes.id");
+
+        return response.json(dishes);
+    
+    } catch (error) {
+        next(error);
+    }
+}
+
+
     async show(request: Request, response: Response, next: NextFunction) {
         try {
             const id = z.string()
