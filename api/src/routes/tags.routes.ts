@@ -12,6 +12,7 @@ tagsRoutes.use(ensureAuthenticated);
 
 // Qualquer user pode acessar a rota get
 tagsRoutes.get("/", tagsController.index);
+tagsRoutes.get("/:id", tagsController.show);
 
 // Midleware para proteger as rotas abaixo contra usuários que não tem a role: "admin"
 tagsRoutes.use(verifyUserAuthorization(["admin"]));

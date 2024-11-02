@@ -5,6 +5,26 @@ import { z } from "zod";
 
 class TagsController {
 
+    async show(request: Request, response: Response, next: NextFunction) { 
+        try {
+            const id = z.string()
+                .transform((value) => Number(value))
+                .refine((value) => !isNaN(value), { message: "id must be a number" })
+                .parse(request.params.id);
+
+            const tag = await knex<TagsRepository>("tags").select().where({ dish_id: id });
+
+            if (!tag) {
+                throw new AppError("tag dont exists", 404);
+            }
+
+            return response.status(200).json(tag);
+
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async index(request: Request, response: Response, next: NextFunction) {
         try {
             const { name } = request.query;

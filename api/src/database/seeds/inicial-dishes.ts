@@ -25,7 +25,7 @@ export async function seed(knex: Knex): Promise<void> {
         },
         {
             name: "Salada Molla",
-            description: "Massa fresca com camarões e pesto.",
+            description: "Salada de folhas verdes com tomate, pepino e cebola roxa.",
             price: 69.97,
             image: "saladaMolla.png",
             category: "meals",
@@ -97,23 +97,26 @@ export async function seed(knex: Knex): Promise<void> {
         { name: "tomate", dish_id: dishes[0].id },
 
         // Torradas de Parma
-        { name: "presunto de parma", dish_id: dishes[1].id },
+        { name: "parma", dish_id: dishes[1].id },
         { name: "rúcula", dish_id: dishes[1].id },
-        { name: "pão com fermentação natural", dish_id: dishes[1].id },
+        { name: "pão", dish_id: dishes[1].id },
 
         // Spaguetti Gambe
-        { name: "massa fresca", dish_id: dishes[2].id },
+        { name: "spaguetti", dish_id: dishes[2].id },
         { name: "camarões", dish_id: dishes[2].id },
         { name: "pesto", dish_id: dishes[2].id },
 
         // Salada Molla
-        { name: "folhas verdes", dish_id: dishes[3].id },
-        { name: "molho agridoce", dish_id: dishes[3].id },
-        { name: "gergelim", dish_id: dishes[3].id },
+        { name: "alface", dish_id: dishes[3].id },
+        { name: "tomate", dish_id: dishes[3].id },
+        { name: "pepino", dish_id: dishes[3].id },
+        { name: "cebola", dish_id: dishes[3].id },
+        { name: "molho", dish_id: dishes[3].id },
+        { name: "pimenta", dish_id: dishes[3].id },
 
         // Prugna Pie
         { name: "ameixa", dish_id: dishes[4].id },
-        { name: "massa amanteigada", dish_id: dishes[4].id },
+        { name: "massa", dish_id: dishes[4].id },
         { name: "açúcar", dish_id: dishes[4].id },
 
         // Peachy Pastrie
@@ -122,14 +125,14 @@ export async function seed(knex: Knex): Promise<void> {
         { name: "folheado", dish_id: dishes[5].id },
 
         // Macarons
-        { name: "farinha de amêndoas", dish_id: dishes[6].id },
+        { name: "amêndoas", dish_id: dishes[6].id },
         { name: "manteiga", dish_id: dishes[6].id },
-        { name: "claras", dish_id: dishes[6].id },
+        { name: "clara", dish_id: dishes[6].id },
         { name: "açúcar", dish_id: dishes[6].id },
 
         // Bolo de damasco
         { name: "damasco", dish_id: dishes[7].id },
-        { name: "massa sem glúten", dish_id: dishes[7].id },
+        { name: "massa", dish_id: dishes[7].id },
 
         // Espresso
         { name: "café", dish_id: dishes[8].id },
@@ -137,8 +140,8 @@ export async function seed(knex: Knex): Promise<void> {
 
         // Suco de Maracujá
         { name: "maracujá", dish_id: dishes[9].id },
-        { name: "cremoso", dish_id: dishes[9].id },
-        { name: "gelado", dish_id: dishes[9].id },
+        { name: "açucar", dish_id: dishes[9].id },
+        { name: "água", dish_id: dishes[9].id },
 
         // Tè d'autunno
         { name: "anis", dish_id: dishes[10].id },
