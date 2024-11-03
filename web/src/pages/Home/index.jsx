@@ -14,7 +14,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 import { useEffect, useState } from "react";
     
-
+//apagar isso quando não tiver mais usando em outras pages
 export const menuItens = [
     {
         id: 1,

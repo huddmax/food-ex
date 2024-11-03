@@ -1,4 +1,4 @@
-import { Container, Explorer, Search } from './style';
+import { Container, Explorer, Search, Dropdown } from './style';
 
 import { Input } from '../Input';
 import { Button } from '../Button';
@@ -11,9 +11,33 @@ import { useNavigate } from "react-router-dom";
 
 import { useAuth } from '../../hooks/auth';
 
-
+import { useState } from 'react';
+import { api } from '../../services/api';
 
 export function Header() {
+
+    const [searchTerm, setSearchTerm] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [isDropdownVisible, setDropdownVisible] = useState(false);
+
+    const handleSearchChange = async (event) => {
+        const value = event.target.value;
+        setSearchTerm(value);
+
+        if (value) {
+            console.log('Buscando pratos:', value);
+            try {
+                const response = await api.get(`dishes/search/s?name=${value}`);
+                setSearchResults(response.data);
+                setDropdownVisible(true); // Exibir dropdown com resultados
+            } catch (error) {
+                console.error('Erro ao buscar pratos:', error);
+            }
+        } else {
+            setDropdownVisible(false);
+        }
+    };
+
 
     const { signOut } = useAuth();
     
@@ -36,8 +60,34 @@ export function Header() {
 
             <Search htmlFor="search" >
             <SearchIcon/>
-            <Input placeholder="Busque por pratos ou ingredientes" id="search">
-            </Input>
+                <Input
+                    placeholder="Busque por pratos ou ingredientes"
+                    id="search"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                    autocomplete="off"
+                />
+
+                {isDropdownVisible && (
+                    <Dropdown>
+                        {searchResults.length > 0 ? (
+                            searchResults.map((dish) => (
+                                <div
+                                    key={dish.id}
+                                    className="dropdown-item"
+                                    onClick={() => navigate(`/dish/${dish.id}`)}
+                                >
+                                    {dish.name}
+                                </div>
+                            ))
+                        ) : (
+                            <div className="dropdown-item">Nenhum prato encontrado</div>
+                        )}
+                    </Dropdown>
+                )}
+             
+
+            
             </Search>
 
             <div onClick={goToDish}>
