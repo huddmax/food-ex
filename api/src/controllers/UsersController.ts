@@ -41,6 +41,7 @@ class UsersController {
             next(error);
         }
     }
+
 }
 
 

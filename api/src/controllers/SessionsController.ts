@@ -33,6 +33,10 @@ class SessionsController {
                 subject: String(user.id),
             });
             
+            if (user.password) {
+                user.password = '***';
+            }
+            
             return response.json({ token, user });
         } catch (error) {
             next(error);

@@ -5,8 +5,7 @@ import { AppError } from "@/utils/AppError";
 
 class DishesController {
     
-    /*
-    Controllers devem ter no máximo 5 métodos:
+    /* Controllers devem ter no máximo 5 métodos:
     
     * index - GET para listar vários registros.
     * show - GET para exibir um registro específico.
@@ -15,8 +14,7 @@ class DishesController {
     * remove - DELETE para deletar um registro.
     */
    
-    // DishesController.ts
-async search(request: Request, response: Response, next: NextFunction) {
+    async search(request: Request, response: Response, next: NextFunction) {
     const { name } = request.query;
 
     if (!name) {
@@ -37,8 +35,7 @@ async search(request: Request, response: Response, next: NextFunction) {
     } catch (error) {
         next(error);
     }
-}
-
+    }
 
     async show(request: Request, response: Response, next: NextFunction) {
         try {
@@ -162,8 +159,6 @@ async search(request: Request, response: Response, next: NextFunction) {
             next(error);
         }
     }
-   
-   
 }
 
 
