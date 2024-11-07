@@ -65,7 +65,7 @@ export function Header() {
                     id="search"
                     value={searchTerm}
                     onChange={handleSearchChange}
-                    autocomplete="off"
+                    autoComplete="off"
                 />
 
                 {isDropdownVisible && (
@@ -90,7 +90,7 @@ export function Header() {
             
             </Search>
 
-            <div onClick={goToDish}>
+            <div>
                 <Button
                     title="Pedidos (0)"
                     icon={<ReceiptIcon />}

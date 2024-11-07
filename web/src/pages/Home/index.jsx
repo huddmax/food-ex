@@ -152,9 +152,7 @@ export function Home() {
 
     useEffect(() => {
         async function fetchDishes() {
-            try {
-                console.log("useEffect executado")
-                
+            try {        
                 const response = await api.get("/dishes");
                 const dishes = response.data;
                 

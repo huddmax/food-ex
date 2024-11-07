@@ -30,6 +30,7 @@ export const Container = styled.header`
         cursor: pointer;
     }
 
+    position: relative;
     
     `;
 
@@ -139,5 +140,28 @@ export const Explorer = styled.div`
 `;
 
 
+export const Dropdown = styled.div`
+    position: absolute;
+    top: 100%; /* Para alinhar logo abaixo da barra de busca */
+    left: 0;
+    width: 100%; /* Faz o dropdown ter a mesma largura da barra de busca */
+    background: #1f1f1f; /* Ajuste a cor de fundo para combinar com o tema */
+    border: 1px solid #333; /* Borda suave para dar destaque */
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    padding: 8px 0;
+
+    .dropdown-item {
+        padding: 10px;
+        cursor: pointer;
+        color: #fff; /* Cor do texto para ficar visível */
+        
+        &:hover {
+            background: #333; /* Cor de fundo ao passar o mouse */
+        }
+    }
+`;
 
 
