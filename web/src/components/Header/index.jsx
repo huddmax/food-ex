@@ -29,7 +29,7 @@ export function Header() {
             try {
                 const response = await api.get(`dishes/search/s?name=${value}`);
                 setSearchResults(response.data);
-                setDropdownVisible(true); // Exibir dropdown com resultados
+                setDropdownVisible(true);
             } catch (error) {
                 console.error('Erro ao buscar pratos:', error);
             }

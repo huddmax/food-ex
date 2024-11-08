@@ -7,13 +7,40 @@ import '@splidejs/splide/dist/css/splide.min.css';
 //@ts-ignore
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
-import { menuItens } from '../Home/index';
-    
-    const meals = menuItens.filter(item => item.category === "meal");
-    const desserts = menuItens.filter(item => item.category === "dessert");
-    const drinks = menuItens.filter(item => item.category === "drink");
+import { useEffect, useState } from "react";
+import { api, getImageUrl } from "../../services/api";
+import { useNavigate } from "react-router-dom";
     
 export function HomeAdmin() {
+    const [meals, setMeals] = useState([]);
+    const [desserts, setDesserts] = useState([]);
+    const [drinks, setDrinks] = useState([]);
+
+
+
+    const navigate = useNavigate();
+  
+
+    const goToDish = (id) => {
+        navigate(`/dish/${id}`);
+    };
+
+    useEffect(() => {
+        async function fetchDishes() {
+            try {        
+                const response = await api.get("/dishes");
+                const dishes = response.data;
+                
+                setMeals(dishes.filter(dish => dish.category === "meals"));
+                setDesserts(dishes.filter(dish => dish.category === "desserts"));
+                setDrinks(dishes.filter(dish => dish.category === "drinks"));
+            } catch (error) {
+                console.error("Error fetching dishes", error);
+            }
+        }
+    
+        fetchDishes();
+    }, []);
     return (
         <Container>
 
@@ -50,8 +77,10 @@ export function HomeAdmin() {
                             <CardAdmin
                                 dishName={dish.name}
                                 dishDescription={dish.description}
-                                dishValue={dish.value}
-                                dishImg={dish.img}
+                                dishValue={dish.price}
+                                dishImg={getImageUrl(dish.image)}
+
+                                onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>
                     ))}
@@ -81,8 +110,10 @@ export function HomeAdmin() {
                             <CardAdmin
                                 dishName={dish.name}
                                 dishDescription={dish.description}
-                                dishValue={dish.value}
-                                dishImg={dish.img}
+                                dishValue={dish.price}
+                                dishImg={getImageUrl(dish.image)}
+
+                                onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>
                     ))}
@@ -112,8 +143,10 @@ export function HomeAdmin() {
                             <CardAdmin
                                 dishName={dish.name}
                                 dishDescription={dish.description}
-                                dishValue={dish.value}
-                                dishImg={dish.img}
+                                dishValue={dish.price}
+                                dishImg={getImageUrl(dish.image)}
+
+                                onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>
                     ))}

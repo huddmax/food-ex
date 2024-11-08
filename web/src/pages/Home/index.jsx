@@ -189,11 +189,11 @@ export function Home() {
 
                 <Splide
                     options={{
-                        type: 'loop', // Para fazer o carrossel em loop
-                        perPage: 4, // Número de slides visíveis (dois centrais em foco)
-                        focus: 'start', // Foco no centro
+                        type: 'loop',
+                        perPage: 4, 
+                        focus: 'start', 
                         gap: 'rem',
-                        pagination: true, // Desativar paginação (se não for necessária)
+                        pagination: true, 
                         arrows: true, 
                     }}>
                     

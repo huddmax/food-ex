@@ -40,6 +40,9 @@ export const Container = styled.div`
 `;
 
 export const DishImage = styled.img`
+
+cursor: pointer;
+
 width: 176px;
 height: 176px;
 flex-shrink: 0;
@@ -50,6 +53,8 @@ flex-shrink: 0;
 `;
 
 export const DishName = styled.div`
+
+    cursor: pointer;
 
     width: 256px;
     min-height: 34px;
@@ -66,6 +71,8 @@ export const DishName = styled.div`
 `;
 
 export const DishDescription = styled.div`
+
+    cursor: pointer;
 
     min-height: 44px;
 
@@ -99,6 +106,8 @@ export const DishValue = styled.div`
 `;
 
 export const CardButtons = styled.div`
+
+    
 
     min-height: 48px;
     display: flex;

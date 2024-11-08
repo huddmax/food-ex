@@ -3,23 +3,29 @@ import { EditIcon } from "/src/assets/icons/EditIcon";
 import { Stepper } from "../Stepper";
 import { Button } from "../Button";
 
-export function CardAdmin({id, dishName, dishDescription,dishValue,dishImg,...rest}) {
+export function CardAdmin({id, dishName, dishDescription,dishValue,dishImg,onClickDish,...rest}) {
 
     return (
         <Container>
 
-            {/* <EditIcon className="EditIcon" /> */}
-            <img src="/src/assets/icons/Pencil.svg" alt="Pencil" />
+            <img
+                src="/src/assets/icons/Pencil.svg"
+                alt="Pencil"
+                style={{ cursor: 'pointer' }}
+                onClick={onClickDish}
+            />
+
             <DishImage
                 src={dishImg}
                 alt={dishName}
+                onClick={onClickDish}
             />
            
-            <DishName>
+            <DishName onClick={onClickDish}>
                 <p> {dishName} &gt; </p>
             </DishName>
 
-            <DishDescription>
+            <DishDescription onClick={onClickDish}>
                 <p>{dishDescription}</p>
             </DishDescription>
             
