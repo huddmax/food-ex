@@ -19,6 +19,11 @@ import { useEffect, useState } from 'react';
     const { id } = useParams();
 
     const navigate = useNavigate();
+    
+    const goToDishEdit = (id) => {
+        navigate(`/dishedit/${id}`);
+    };
+
     const goBack = () => {
         navigate(-1);
     }
@@ -75,7 +80,10 @@ import { useEffect, useState } from 'react';
                         </div>
                         
                         <div className="buttonEditDiv">
-                        <Button title={"Editar prato"}/>
+                            <Button
+                                title={"Editar prato"}
+                                onClick={() => goToDishEdit(dish.id)}
+                            />
                         </div>
                         
                     </DishInfo>

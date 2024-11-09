@@ -19,8 +19,10 @@ export function HomeAdmin() {
 
 
     const navigate = useNavigate();
-  
-
+    
+    const goToDishEdit = (id) => {
+        navigate(`/dishedit/${id}`);
+    };
     const goToDish = (id) => {
         navigate(`/dish/${id}`);
     };
@@ -79,7 +81,7 @@ export function HomeAdmin() {
                                 dishDescription={dish.description}
                                 dishValue={dish.price}
                                 dishImg={getImageUrl(dish.image)}
-
+                                onClickDishEdit={()=>goToDishEdit(dish.id)}
                                 onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>
@@ -112,7 +114,7 @@ export function HomeAdmin() {
                                 dishDescription={dish.description}
                                 dishValue={dish.price}
                                 dishImg={getImageUrl(dish.image)}
-
+                                onClickDishEdit={()=>goToDishEdit(dish.id)}
                                 onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>
@@ -145,7 +147,7 @@ export function HomeAdmin() {
                                 dishDescription={dish.description}
                                 dishValue={dish.price}
                                 dishImg={getImageUrl(dish.image)}
-
+                                onClickDishEdit={()=>goToDishEdit(dish.id)}
                                 onClickDish={()=>goToDish(dish.id)}
                             />
                         </SplideSlide>

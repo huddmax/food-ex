@@ -3,7 +3,7 @@ import { EditIcon } from "/src/assets/icons/EditIcon";
 import { Stepper } from "../Stepper";
 import { Button } from "../Button";
 
-export function CardAdmin({id, dishName, dishDescription,dishValue,dishImg,onClickDish,...rest}) {
+export function CardAdmin({id, dishName, dishDescription,dishValue,dishImg,onClickDish,onClickDishEdit,...rest}) {
 
     return (
         <Container>
@@ -12,7 +12,7 @@ export function CardAdmin({id, dishName, dishDescription,dishValue,dishImg,onCli
                 src="/src/assets/icons/Pencil.svg"
                 alt="Pencil"
                 style={{ cursor: 'pointer' }}
-                onClick={onClickDish}
+                onClick={onClickDishEdit}
             />
 
             <DishImage
