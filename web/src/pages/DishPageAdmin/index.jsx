@@ -1,4 +1,4 @@
-import { Container,All,Main,DishInfo } from './style';
+import { Container, All, Main, DishInfo } from './style';
 import { Button } from '../../components/Button';
 import { HeaderAdmin } from '../../components/HeaderAdmin';
 import { Footer } from '../../components/Footer';
@@ -7,15 +7,39 @@ import { menuItens } from '../Home';
 import { LeftArrow } from '../../assets/icons/LeftArrow';
 import { Tag } from '../../components/Tag';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { api, getImageUrl } from '../../services/api';
+import { useEffect, useState } from 'react';
 
-const selectedDish = menuItens.find((item)=>item.id==1)
 
-export function DishPageAdmin() { 
+    export function DishPageAdmin() { 
+    const [dish, setDish] = useState([]);
+    const [tags, setTags] = useState([]);
+
+    const { id } = useParams();
+
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
     }
+
+    useEffect(() => {
+        async function fetchDish() {
+            try {
+                const response = await api.get(`/dishes/${id}`);
+                setDish(response.data);
+
+                const responseTags = await api.get(`/tags/${id}`);
+                setTags(responseTags.data);
+            } catch (error) {
+                console.error("Erro ao buscar o prato:", error);
+            }
+        }
+        fetchDish();
+    }, [id]);
+
+  
+
 
 
     return (
@@ -35,20 +59,18 @@ export function DishPageAdmin() {
                 </div>
                 
                 <Main>
-                    <img src={selectedDish.img} alt={selectedDish.name} />
+                    <img src={getImageUrl(dish.image)} alt={dish.name} />
 
                     <DishInfo>
 
-                        <h2> {selectedDish.name} </h2>
-                        <p>{selectedDish.description}</p>
+                        <h2> {dish.name} </h2>
+                        <p>{dish.description}</p>
 
                         <div className="tags">
-                            <Tag title="alface"/>
-                            <Tag title="cebola"/>
-                            <Tag title="pão naan"/>
-                            <Tag title="pepino"/>
-                            <Tag title="rabanete"/>
-                            <Tag title="tomate"/>
+
+                            {tags.map((tag) => (
+                                <Tag title={tag.name} />
+                            ))}
                             
                         </div>
                         

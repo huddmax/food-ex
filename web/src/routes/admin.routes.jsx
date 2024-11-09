@@ -14,7 +14,7 @@ export function AdminRoutes() {
             <Route path="/" element={<HomeAdmin/>} />
             <Route path="/dish/:id" element={<DishPageAdmin />} />
             <Route path="/dishadd" element={<DishAdd />} />
-            <Route path="/dishedit" element={<DishEdit />} />
+            <Route path="/dishedit/:id" element={<DishEdit />} />
 
         </Routes>
     )

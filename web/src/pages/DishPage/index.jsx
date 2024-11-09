@@ -12,9 +12,6 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-// import { menuItens } from '../Home';
-// const selectedDish = menuItens.find((item)=>item.id==13)
-
 export function DishPage() { 
     const [dish, setDish] = useState([]);
     const [tags, setTags] = useState([]);
