@@ -6,6 +6,7 @@ export const Container = styled.div`
     /* height: 824px; */
 
 `;
+
 export const All = styled.div`
 
     div {
@@ -31,6 +32,7 @@ export const All = styled.div`
 
     }
 `;
+
 export const Main = styled.div`
     box-sizing: border-box;
     display: flex;
@@ -41,10 +43,14 @@ export const Main = styled.div`
     img {
         margin: 42px 48px 110px 122px;
         height: 352px;
-        width: 353px !important;
         object-fit: cover;
         box-sizing: border-box;
         /* background-color: #f0f0f0; */
+        width: 352px;
+    }
+
+    .mainImage {
+        width: 352px;
     }
 
     h2 {
@@ -64,6 +70,7 @@ export const Main = styled.div`
     }
 
 `;
+
 export const DishInfo = styled.div`
     min-width: 687px;
     height: 204px;

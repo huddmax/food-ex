@@ -14,18 +14,73 @@ import { useEffect } from "react";
 import { api } from "../../services/api";
 
 
-
 export function DishEdit() {
     const { id } = useParams()
     const [dishName, setDishName] = useState("");
     const [dishCategory, setDishCategory] = useState("");
     const [dishPrice, setDishPrice] = useState("");
     const [dishDescription, setDishDescription] = useState("");
+    const [imageFile, setImageFile] = useState(null);
+    
+    
+    function handleFileChange(event) {
+        const file = event.target.files[0];
+        console.log("Arquivo Selecionado: ", file);
+        if (file) {
+            setImageFile(file);
+        }
+    }
 
+
+    async function handleSaveChanges() {
+        try {
+
+            if (imageFile) {
+                const formData = new FormData();
+                formData.append("image", imageFile);
+    
+                console.log("Iniciando o upload da imagem...");
+                const uploadResponse = await api.patch(`/dishes/image/${id}`, formData);
+                console.log("Imagem atualizada com sucesso!", uploadResponse.data);
+            }
+    
+
+        const dishData = {
+            name: dishName,
+            price: parseFloat(dishPrice),
+            description: dishDescription,
+            category: dishCategory,
+        };
+
+            await api.put(`/dishes/${id}`, dishData, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            alert("Dados do prato atualizados com sucesso!");
+            goHome();
+        } catch (error) {
+            console.error("Erro ao atualizar os dados do prato:", error);
+        }
+    }
+
+    async function handleDeleteDish() { 
+        try {
+            await api.delete(`/dishes/${id}`);
+            alert("Prato excluído com sucesso!");
+            goHome();
+        } catch (error) {
+            console.error("Erro ao excluir o prato:", error);
+        }
+    }
 
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
+    }
+
+    const goHome = () => { 
+        navigate("/");
     }
 
     useEffect(() => {
@@ -70,10 +125,18 @@ export function DishEdit() {
                 <DishesInfo>
                     <div id="Upload">
                         <label htmlFor="buttonUpload">Imagem do prato</label>
+                        <input
+                            type="file"
+                            id="buttonUpload"
+                            onChange={handleFileChange}
+                            style={{ display: 'none' }}
+                        />
                         <Button
                             id="buttonUpload"
                             icon={<UploadIcon/>}
                             title={"Selecione imagem"}
+                            onClick={() => document.getElementById("buttonUpload").click()}
+                            
                         />
                     </div>
 
@@ -117,13 +180,12 @@ export function DishEdit() {
                         <TagsBar />
                         <InputWithText
                             className="price"
-                            id={"priceOfDish"}
-                            title={"Preço"}
+                            id="priceOfDish"
+                            title="Preço"
                             placeholder="R$ 00,00"
                             value={dishPrice}
                             onChange={(e) => setDishPrice(e.target.value)}
-                        />
-                        
+                        />  
                     </TagsAndPrice>
 
                 <Description>
@@ -138,11 +200,21 @@ export function DishEdit() {
                 </Description>
                     
                 <FinalButtons>
-                        <button className="deleteButton">Excluir prato</button>
-                        <button className="saveButton">Salvar alterações</button> 
+                        <button
+                            className="deleteButton"
+                            onClick={handleDeleteDish}
+                        >
+                            Excluir prato
+                        </button>
+
+                        <button
+                            className="saveButton"
+                            onClick={handleSaveChanges}
+                        >
+                            Salvar alterações
+                        </button> 
                 </FinalButtons>
                     
-                
             </Main>
                 </Content>
 

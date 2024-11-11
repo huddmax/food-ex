@@ -56,7 +56,7 @@ export function DishPage() {
                 </div>
                 
                 <Main>
-                     <img src={getImageUrl(dish.image)} alt={dish.name}/>
+                     <img className='mainImage' src={getImageUrl(dish.image)} alt={dish.name}/>
 
                     <DishInfo>
 

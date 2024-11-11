@@ -74,7 +74,7 @@ import { useEffect, useState } from 'react';
                         <div className="tags">
 
                             {tags.map((tag) => (
-                                <Tag title={tag.name} />
+                                <Tag title={tag.name} key={tag.id} />
                             ))}
                             
                         </div>

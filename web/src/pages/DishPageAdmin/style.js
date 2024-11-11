@@ -39,6 +39,7 @@ export const Main = styled.div`
     
     img {
         margin: 42px 48px 110px 122px;
+        width: 342px;
     }
 
     h2 {
