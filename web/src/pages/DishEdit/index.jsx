@@ -163,9 +163,9 @@ export function DishEdit() {
                                     value={dishCategory}
                                     onChange={(e) => setDishCategory(e.target.value)}
                                 >
-                                <option value="meal">Refeição</option>
-                                <option value="dessert">Sobremesa</option>
-                                <option value="drink">Bebida</option>
+                                <option value="meals">Refeição</option>
+                                <option value="desserts">Sobremesa</option>
+                                <option value="drinks">Bebida</option>
                                 </select>
                                 <img
                                     src="/src/assets/icons/DonwArrow/donwArrow.svg"

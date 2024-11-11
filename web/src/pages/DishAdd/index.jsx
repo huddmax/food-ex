@@ -5,27 +5,79 @@ import { Button } from "../../components/Button";
 import { TagsBar } from "../../components/TagsBar";
 import { InputWithText } from '../../components/InputWithText'
 
-import { DonwArrow } from "../../assets/icons/DonwArrow";
 import { LeftArrow } from "../../assets/icons/LeftArrow";
 import { UploadIcon } from '../../assets/icons/UploadIcon';
 
 import { useNavigate } from "react-router-dom";
-
 import { useState } from "react";
+import { api } from "../../services/api";
 
 export function DishAdd() {
     const [dishName, setDishName] = useState("");
-    const [dishCategory, setDishCategory] = useState("");
+    const [dishCategory, setDishCategory] = useState("meals");
     const [dishPrice, setDishPrice] = useState("");
     const [dishDescription, setDishDescription] = useState("");
-    const [dishImage, setDishImage] = useState("");
+    const [imageFile, setImageFile] = useState(null);
+
+    function handleFileChange(event) {
+        const file = event.target.files[0];
+        console.log("Arquivo selecionado:", file);
+        if (file) {
+            setImageFile(file);
+        }
+    }
+
+    async function handleSaveChanges() {
+        try {
+
+            if (!dishName || !dishDescription || !dishPrice) {
+                alert("Preencha todos os campos obrigatórios!");
+                return;
+            }
 
 
+            let imageUrl = null;
+    
+            if (imageFile) {
+                const formData = new FormData();
+                formData.append("image", imageFile);
+    
+                console.log("Iniciando o upload da imagem...");
+                const uploadResponse = await api.post(`/dishes/image`, formData);
+                imageUrl = uploadResponse.data.imageUrl.replace("/files/", "");
+                console.log("Imagem carregada com sucesso!", imageUrl);
+            }
+    
+            const dishData = {
+                name: dishName,
+                price: parseFloat(dishPrice),
+                description: dishDescription,
+                category: dishCategory,
+                image: imageUrl
+            };
 
+            console.log("Enviando dados do prato:", dishData);
+            await api.post(`/dishes`, dishData, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+    
+            alert("Novo prato criado com sucesso!");
+            goHome();
+    
+        } catch (error) {
+            console.error("Erro ao criar o novo prato:", error);
+            alert("Erro ao criar o novo prato");
+        }
+    }
 
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
+    }
+    const goHome = () => {
+        navigate("/");
     }
     return (
         <Container>
@@ -50,15 +102,21 @@ export function DishAdd() {
             <Main>
                 <DishesInfo>
                     <div id="Upload">
-                        <label htmlFor="buttonUpload">Imagem do prato</label>
+                            <label htmlFor="buttonUpload">Imagem do prato</label>
+                            <input
+                                type="file"
+                                id="buttonUpload"
+                                onChange={handleFileChange}
+                                style={{ display: 'none' }}
+                                />
                         <Button
                             id="buttonUpload"
                             icon={<UploadIcon/>}
                             title={"Selecione imagem"}
+                            onClick={() => document.getElementById("buttonUpload").click()}    
                         />
                     </div>
 
- 
                     <div id="dishName">
                         <label htmlFor="dishNameInput">Nome</label>
                             <input
@@ -70,8 +128,6 @@ export function DishAdd() {
                                 onChange={e => setDishName(e.target.value)}
                             />
                     </div>
-                       
- 
 
                     <div id="category" >
                             <label htmlFor="dishCategory">Categoria</label>
@@ -83,23 +139,18 @@ export function DishAdd() {
                                     value={dishCategory}
                                     onChange={e => setDishCategory(e.target.value)}
                                 >
-                                <option value="meal">Refeição</option>
-                                <option value="dessert">Sobremesa</option>
-                                <option value="drink">Bebida</option>
+                                <option value="meals">Refeição</option>
+                                <option value="desserts">Sobremesa</option>
+                                <option value="drinks">Bebida</option>
                                 </select>
                                 <img
                                     src="/src/assets/icons/DonwArrow/donwArrow.svg"
                                     alt="donwArrowIcon"
                                     className="selectIcon" />
-                            {/* <DonwArrow className="selectIcon" /> */}
                             </div>
                     </div>
 
                     </DishesInfo>
-                    
-
-
-
 
                     <TagsAndPrice>
 
@@ -115,11 +166,8 @@ export function DishAdd() {
                         />
                         
                     </TagsAndPrice>
+
                     
-
-
-
-
                 <Description>
                         <label htmlFor="descriptionOfDish">Descrição</label>
                         <textarea
@@ -133,7 +181,12 @@ export function DishAdd() {
                     
                 <FinalButtons>
                         
-                        <button className="saveButton">Salvar alterações</button>
+                        <button
+                            className="saveButton"
+                            onClick={handleSaveChanges}
+                        >
+                            Salvar alterações
+                        </button>
 
                         
                 </FinalButtons>
