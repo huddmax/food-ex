@@ -76,16 +76,15 @@ class DishesController {
     async create(request: Request, response: Response, next: NextFunction) {
 
         try {
-
-            
             const bodySchema = z.object({
                 name: z.string().trim().min(3),
                 price: z.number().gt(0, { message: "Price must be greater than 0" }),
-                description: z.string().trim().min(12),
+                description: z.string().trim().min(3),
                 category: z.string().trim(),
+                image: z.string().nullable().optional(),
             })
             
-            const { name, price, description, category } = bodySchema.parse(request.body);
+            const { name, price, description, category, image } = bodySchema.parse(request.body);
             
             const dishExists = await knex<DishRepository>("dishes").select("id").where({ name }).first();
             
@@ -93,10 +92,11 @@ class DishesController {
                 return response.status(409).json({ message: "Dish already exists" });
             }
 
-            await knex<DishRepository>("dishes").insert({ name, price, description, category });
+            await knex<DishRepository>("dishes").insert({ name, price, description, category, image });
             return response.status(201).json({ message: `Dish created successfully \n ${request.user?.role}` });
             
         } catch (error) { 
+            console.log("Erro inesperado ao criar o prato", error);
             next(error);
         }
     }

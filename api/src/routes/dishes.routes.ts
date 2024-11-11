@@ -33,6 +33,7 @@ dishesRoutes.put("/:id", dishesController.update);
 const dishImageController = new DishImageController;
 
 dishesRoutes.patch("/image/:id", upload.single("image"), dishImageController.update);
+dishesRoutes.post("/image", upload.single("image"), dishImageController.create);
 
 
 
