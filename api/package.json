@@ -4,7 +4,7 @@
   "description": "API REST para gerenciar meu RESTaurante",
   "main": "src/server.js",
   "scripts": {
-    "start": "npm run knex -- migrate:latest && tsx watch --env-file=.env src/server.ts",
+    "start": "tsx watch src/server.ts",
     "dev": "brew services start postgresql@14 && npm run knex -- migrate:latest && tsx watch --env-file=.env src/server.ts",
     "knex": "node --import tsx ./node_modules/.bin/knex"
   },
