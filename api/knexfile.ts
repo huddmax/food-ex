@@ -6,6 +6,7 @@ export default {
     connection: {
         filename: "./src/database/database.db",
         connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false },
         port: process.env.PGPORT,
         host: process.env.PGHOST,
         user: process.env.PGUSER,

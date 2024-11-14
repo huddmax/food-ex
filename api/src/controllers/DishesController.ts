@@ -15,7 +15,9 @@ class DishesController {
     */
    
     async search(request: Request, response: Response, next: NextFunction) {
-    const { name } = request.query;
+
+        const nameSchema = z.string().max(50).optional();
+        const name = nameSchema.parse(request.query.name);
 
     if (!name) {
         return response.status(400).json({ error: "Search query is required" });
@@ -60,9 +62,9 @@ class DishesController {
    async index(request: Request, response: Response, next: NextFunction) {
     
        try {
-
-           const { name } = request.query;
-           
+            const nameSchema = z.string().max(50).optional();
+            const name = nameSchema.parse(request.query.name);
+        
            const dishes = await knex<DishRepository>("dishes").select().whereILike("name", `%${name ?? ""}%`).orderBy("name");
            
            return response.status(200).json(dishes);

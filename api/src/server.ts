@@ -5,7 +5,7 @@ import { routes } from "./routes";
 import { errorHandler } from "./middlewares/errorHandler";
 import { uploadConfig } from "./configs/upload";
 
-const PORT = 3333;
+const PORT = process.env.PORT || 3333;
 
 const app = express();
 //Para devolver json no response

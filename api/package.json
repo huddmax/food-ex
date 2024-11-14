@@ -4,7 +4,9 @@
   "description": "API REST para gerenciar meu RESTaurante",
   "main": "src/server.js",
   "scripts": {
-    "dev": "brew services start postgresql@14 && npm run knex -- migrate:latest && tsx watch --env-file=.env src/server.ts",
+    "start": "tsx watch src/server.ts",
+    "start:prod": "pm2 start ecosystem.config.js --env production",
+    "dev": "brew services start postgresql@14 && npm run knex -- migrate:latest && tsx watch --env-file=.env.dev src/server.ts",
     "knex": "node --import tsx ./node_modules/.bin/knex"
   },
   "author": "Hudson Machado",
@@ -14,10 +16,11 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
-    "@types/node": "^20.16.10",
+    "@types/node": "^20.17.6",
     "@types/pg": "^8.11.10",
     "node-pg-migrate": "^7.7.0",
     "pg": "^8.13.0",
+    "pm2": "^5.4.3",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.16.2",
