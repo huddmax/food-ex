@@ -4,11 +4,15 @@ Um site de restaurante interativo onde o administrador e o cliente têm visualiz
 
 ## 📸 Capturas de Tela
 
+## Tela de Login
+![Tela de Login](./web/src/assets/printsForReadme/login.png)
+
 ### Interface do Cliente
-![Página do Cliente](link-para-a-imagem.png)
+![Página do Cliente](./web/src/assets/printsForReadme/inicio.png)
 
 ### Interface do Administrador
-![Página do Administrador](link-para-a-imagem.png)
+![Página do Administrador](./web/src/assets/printsForReadme/inicioAdmin.png)
+
 
 ## 🚀 Link para o Site
 
