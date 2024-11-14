@@ -77,5 +77,5 @@ JWT_SECRET=sua_chave_secreta
 O backend está hospedado no Render, com o banco de dados PostgreSQL também configurado lá. Para configurar o backend em produção, use o comando:
 
 ```bash
-npm run start:prod
+npm run start
 ```
