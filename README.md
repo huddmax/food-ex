@@ -42,11 +42,7 @@ Este é o frontend da aplicação **Food Explorer**, um site interativo para um 
   ```bash
   npm run dev
   ```
-
-- **Build para Produção**:
-  ```bash
-  npm run build
-  ```
+  
 
 ### Deploy
 
