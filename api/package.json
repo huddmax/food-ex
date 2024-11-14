@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "tsx watch src/server.ts",
-    "dev": "brew services start postgresql@14 && npm run knex -- migrate:latest && tsx watch --env-file=.env src/server.ts",
+    "dev": "brew services start postgresql@14 && npm run knex -- migrate:latest && tsx watch --env-file=.env.dev src/server.ts",
     "knex": "node --import tsx ./node_modules/.bin/knex"
   },
   "author": "Hudson Machado",
@@ -33,6 +33,7 @@
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
     "multer": "^1.4.5-lts.1",
+    "pm2": "^5.4.3",
     "zod": "^3.23.8"
   }
 }
