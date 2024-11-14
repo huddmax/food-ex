@@ -119,6 +119,12 @@ O site está disponível em [Food Explorer](https://celebrated-otter-1909ab.netl
   - Adição, edição e exclusão de pratos.
   - Acesso a uma interface específica com ferramentas de gerenciamento.
 
+ - Credenciais de Administrador:
+   ```
+      login: admin@admin.com
+      senha: admin
+     ```
+
 ## 📦 Deploy
 
 - **Frontend**: Hospedado no Netlify ([Link para o site](https://celebrated-otter-1909ab.netlify.app/)).
